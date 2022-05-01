@@ -55,9 +55,32 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
+	// persistent flags
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is import-fidelity.toml)")
+
 	rootCmd.PersistentFlags().Bool("log.json", false, "print logs as json to stderr")
 	viper.BindPFlag("log.json", rootCmd.PersistentFlags().Lookup("log.json"))
+
+	rootCmd.PersistentFlags().StringP("username", "u", "", "fidelity username")
+	viper.BindPFlag("username", rootCmd.PersistentFlags().Lookup("username"))
+
+	rootCmd.PersistentFlags().StringP("pin", "p", "", "fidelity password")
+	viper.BindPFlag("pin", rootCmd.PersistentFlags().Lookup("pin"))
+
+	rootCmd.PersistentFlags().String("encryption-key", "", "path to encryption key")
+	viper.BindPFlag("encryption_key", rootCmd.PersistentFlags().Lookup("encryption-key"))
+
+	rootCmd.PersistentFlags().String("username-crypted", "", "encrypted fidelity username (NOTE: use set-login-info command to set)")
+	viper.BindPFlag("username_crypted", rootCmd.PersistentFlags().Lookup("username_crypted"))
+
+	rootCmd.PersistentFlags().String("pin-crypted", "", "encrypted fidelity password (NOTE: use set-login-info command to set)")
+	viper.BindPFlag("pin_crypted", rootCmd.PersistentFlags().Lookup("pin-crypted"))
+
+	rootCmd.PersistentFlags().String("state-file", "state.json", "store session state in the speficied file")
+	viper.BindPFlag("state_file", rootCmd.PersistentFlags().Lookup("state-file"))
+
+	rootCmd.PersistentFlags().String("user-agent", "", "user agent to use")
+	viper.BindPFlag("user_agent", rootCmd.PersistentFlags().Lookup("user-agent"))
 }
 
 func initLog() {

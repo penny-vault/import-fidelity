@@ -9,10 +9,14 @@ import-fidelity
 # Test binary, built with `go test -c`
 *.test
 
+# state files
+state.json
+
 # output parquet files
 *.parquet
 *.csv
 *.list
+*.result
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
