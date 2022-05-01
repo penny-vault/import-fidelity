@@ -4,8 +4,10 @@ go 1.18
 
 require (
 	github.com/go-resty/resty/v2 v2.7.0
+	github.com/go-rod/stealth v0.4.5
 	github.com/jedib0t/go-pretty/v6 v6.3.1
 	github.com/magefile/mage v1.13.0
+	github.com/playwright-community/playwright-go v0.2000.1
 	github.com/rs/zerolog v1.26.1
 	github.com/schollz/progressbar/v3 v3.8.6
 	github.com/spf13/cobra v1.4.0
@@ -23,7 +25,6 @@ require (
 	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/go-rod/rod v0.102.1 // indirect
-	github.com/go-rod/stealth v0.4.5 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/golang/snappy v0.0.3 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
@@ -36,7 +37,6 @@ require (
 	github.com/pelletier/go-toml v1.9.4 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.8 // indirect
 	github.com/pierrec/lz4/v4 v4.1.8 // indirect
-	github.com/playwright-community/playwright-go v0.2000.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/spf13/afero v1.8.2 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
