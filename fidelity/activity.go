@@ -1,9 +1,14 @@
 package fidelity
 
 import (
+	"encoding/json"
+	
 	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
 )
+type TransactionList struct {
+	TransactionList []*TransactionDetails
+}
 
 type TransactionDetails struct {
 	AccountNumber string `json:"acctNum"`
@@ -84,4 +89,8 @@ func AccountActivity(page playwright.Page) {
 	if err != nil {
 		log.Error().Err(err).Msg("error while fetching body")
 	}
+
+	var trxList TransactionList
+	err = json.Unmarshal(body, &trxList)
+
 }
