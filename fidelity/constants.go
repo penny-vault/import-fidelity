@@ -22,4 +22,6 @@ const (
 	SUMMARY_URL      = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#summary`
 	ACTIVITY_URL     = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#activity`
 	ACTIVITY_API_URL = `https://digital.fidelity.com/ftgw/digital/acct-activity/activity-tab-history/api`
+	QUOTE_URL        = `https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=%s`
+	MARKET_DATA_URL  = `https://api.markitdigital.com/xref/v1/symbols/%s`
 )

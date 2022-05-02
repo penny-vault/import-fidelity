@@ -15,6 +15,7 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 	"strings"
 	"time"
@@ -32,9 +33,6 @@ func init() {
 	rootCmd.AddCommand(tickersCmd)
 
 	// Local flags
-	tickersCmd.Flags().StringP("bearer-token", "t", "<not-set>", "fidelity bearer token for authorization")
-	viper.BindPFlag("bearer_token", tickersCmd.Flags().Lookup("bearer-token"))
-
 	tickersCmd.Flags().Int("rate-limit", 5, "rate limit (items per second)")
 	viper.BindPFlag("rate_limit", tickersCmd.Flags().Lookup("rate-limit"))
 
@@ -71,6 +69,39 @@ CUSIP, and CIK for each symbol listed in arguments`,
 			}
 		}
 
+		// get bearer token
+		page, context, browser, pw := fidelity.StartPlaywright(!viper.GetBool("show_browser"))
+		fidelity.Login(page)
+
+		// load the default homepage
+		log.Info().Msg("waiting for market data request")
+		symbol := "MSFT"
+		quoteUrl := fmt.Sprintf(fidelity.QUOTE_URL, symbol)
+		url := fmt.Sprintf(fidelity.MARKET_DATA_URL, symbol)
+		req, err := page.ExpectRequest(url, func() error {
+			_, err := page.Goto(quoteUrl)
+			return err
+		})
+		if err != nil {
+			log.Error().Err(err).Msg("error waiting for market data request")
+			return
+		}
+
+		headers, err := req.AllHeaders()
+		if err != nil {
+			log.Error().Err(err).Msg("error fetching request headers")
+			return
+		}
+
+		var bearerToken string
+		var ok bool
+		if bearerToken, ok = headers["authorization"]; !ok {
+			log.Error().Err(err).Msg("error fetching bearer token")
+			return
+		}
+
+		log.Debug().Str("BearerToken", bearerToken).Msg("authorization")
+
 		assetChan := make(chan *fidelity.Asset, len(args))
 
 		t := table.NewWriter()
@@ -82,7 +113,7 @@ CUSIP, and CIK for each symbol listed in arguments`,
 			limit.Take()
 			bar.Add(1)
 			go func(mySymbol string) {
-				asset := fidelity.FetchTickerData(mySymbol)
+				asset := fidelity.FetchStockTickerData(mySymbol, bearerToken)
 				if asset.Ticker != "" {
 					assetChan <- asset
 				}
@@ -111,5 +142,7 @@ CUSIP, and CIK for each symbol listed in arguments`,
 		if viper.GetString("parquet_file") != "" {
 			fidelity.SaveToParquet(assets, viper.GetString("parquet_file"))
 		}
+
+		fidelity.StopPlaywright(page, context, browser, pw)
 	},
 }

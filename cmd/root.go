@@ -61,6 +61,9 @@ func init() {
 	rootCmd.PersistentFlags().Bool("log.json", false, "print logs as json to stderr")
 	viper.BindPFlag("log.json", rootCmd.PersistentFlags().Lookup("log.json"))
 
+	rootCmd.PersistentFlags().Bool("show-browser", false, "don't run the browser in headless mode")
+	viper.BindPFlag("show_browser", rootCmd.PersistentFlags().Lookup("show-browser"))
+
 	rootCmd.PersistentFlags().StringP("username", "u", "", "fidelity username")
 	viper.BindPFlag("username", rootCmd.PersistentFlags().Lookup("username"))
 

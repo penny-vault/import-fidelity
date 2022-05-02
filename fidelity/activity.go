@@ -90,14 +90,15 @@ type TransactionDetails struct {
 func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, error) {
 	subLog := log.With().Str("Url", ACTIVITY_URL).Logger()
 	// load the activity page
-	if _, err := page.Goto(ACTIVITY_URL, playwright.PageGotoOptions{
-		WaitUntil: playwright.WaitUntilStateNetworkidle,
-	}); err != nil {
+	req, err := page.ExpectRequest(ACTIVITY_API_URL, func() error {
+		_, err := page.Goto(ACTIVITY_URL)
+		return err
+	})
+	if err != nil {
 		subLog.Error().Err(err).Msg("could not load activity page")
 		return nil, err
 	}
 
-	req := page.WaitForRequest(ACTIVITY_API_URL)
 	resp, err := req.Response()
 	if err != nil {
 		subLog.Error().Err(err).Msg("error while waiting for response to activity api")

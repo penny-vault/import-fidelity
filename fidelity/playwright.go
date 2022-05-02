@@ -51,8 +51,8 @@ func Login(page playwright.Page) error {
 		page.Type("#userId-input", common.Username())
 		page.Type("#password", common.Password())
 		page.Click("#fs-login-button")
-		log.Info().Msg("waiting for 30 seconds")
-		page.WaitForTimeout(30000)
+		log.Info().Msg("waiting for 2 seconds")
+		page.WaitForTimeout(2000)
 	} else {
 		log.Info().Msg("session is active; no login necessary")
 	}
@@ -67,8 +67,6 @@ func StartPlaywright(headless bool) (page playwright.Page, context playwright.Br
 		log.Error().Err(err).Msg("could not launch playwright")
 	}
 
-	log.Info().Str("ExecutablePath", pw.Chromium.ExecutablePath()).Msg("chromium install")
-
 	browser, err = pw.Chromium.Launch(playwright.BrowserTypeLaunchOptions{
 		Headless: playwright.Bool(headless),
 	})
@@ -76,7 +74,7 @@ func StartPlaywright(headless bool) (page playwright.Page, context playwright.Br
 		log.Error().Err(err).Msg("could not launch Chromium")
 	}
 
-	log.Info().Str("BrowserVersion", browser.Version()).Msg("browser info")
+	log.Info().Bool("Headless", headless).Str("ExecutablePath", pw.Chromium.ExecutablePath()).Str("BrowserVersion", browser.Version()).Msg("starting playwright")
 
 	// load browser state
 	stateFileName := viper.GetString("state_file")

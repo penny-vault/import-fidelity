@@ -50,9 +50,6 @@ type parquetTransaction struct {
 func init() {
 	rootCmd.AddCommand(activityCmd)
 
-	activityCmd.Flags().BoolP("show-browser", "d", true, "don't run the browser in headless mode")
-	viper.BindPFlag("show_browser", activityCmd.Flags().Lookup("show-browser"))
-
 	activityCmd.Flags().BoolVar(&printTransactions, "print", true, "print transactions to the screen")
 	activityCmd.Flags().StringVar(&saveTransactionsToParquet, "save-parquet", "", "save transactions to parquet file")
 }
@@ -62,7 +59,7 @@ var activityCmd = &cobra.Command{
 	Short: "Download account activity",
 	Long:  `Retrieves the account activity for the last 10 days`,
 	Run: func(cmd *cobra.Command, args []string) {
-		page, context, browser, pw := fidelity.StartPlaywright(false)
+		page, context, browser, pw := fidelity.StartPlaywright(!viper.GetBool("show_browser"))
 		fidelity.Login(page)
 
 		transactions, err := fidelity.AccountActivity(page)

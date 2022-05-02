@@ -21,7 +21,6 @@ import (
 
 	"github.com/go-resty/resty/v2"
 	"github.com/rs/zerolog/log"
-	"github.com/spf13/viper"
 	"github.com/tidwall/gjson"
 	"github.com/xitongsys/parquet-go-source/local"
 	"github.com/xitongsys/parquet-go/parquet"
@@ -78,17 +77,17 @@ func SaveToParquet(records []*Asset, fn string) error {
 	return nil
 }
 
-func FetchTickerData(symbol string) *Asset {
+func FetchStockTickerData(symbol string, bearerToken string) *Asset {
 	symbol = strings.Replace(symbol, ".", "%2F", -1)
 
 	client := resty.New()
-	url := fmt.Sprintf("https://api.markitdigital.com/xref/v1/symbols/%s", symbol)
+	url := fmt.Sprintf(MARKET_DATA_URL, symbol)
 	resp, err := client.
 		R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Origin", "https://digital.fidelity.com").
 		SetHeader("Referer", "https://digital.fidelity.com/").
-		SetHeader("Authorization", fmt.Sprintf("Bearer %s", viper.GetString("bearer_token"))).
+		SetHeader("Authorization", bearerToken).
 		Get(url)
 	if err != nil {
 		log.Error().
