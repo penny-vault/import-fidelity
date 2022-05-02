@@ -1,3 +1,18 @@
+/*
+Copyright 2022
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package fidelity
 
 import (
@@ -10,6 +25,42 @@ import (
 	"github.com/spf13/viper"
 )
 
+// check if the current session is expired; if it is login
+func Login(page playwright.Page) error {
+	subLog := log.With().Str("Url", SUMMARY_URL).Logger()
+
+	if _, err := page.Goto(SUMMARY_URL, playwright.PageGotoOptions{
+		WaitUntil: playwright.WaitUntilStateNetworkidle,
+	}); err != nil {
+		subLog.Error().Err(err).Msg("could not load activity page")
+		return err
+	}
+
+	locator, err := page.Locator("#userId-input")
+	if err != nil {
+		subLog.Error().Err(err).Msg("error acquiring locator for userId")
+	}
+
+	cnt, err := locator.Count()
+	if err != nil {
+		subLog.Error().Err(err).Msg("error evaluating locator count")
+	}
+	if cnt > 0 {
+		// session expired login
+		log.Info().Msg("session expired; login required")
+		page.Type("#userId-input", common.Username())
+		page.Type("#password", common.Password())
+		page.Click("#fs-login-button")
+		log.Info().Msg("waiting for 30 seconds")
+		page.WaitForTimeout(30000)
+	} else {
+		log.Info().Msg("session is active; no login necessary")
+	}
+
+	return nil
+}
+
+// StartPlaywright starts the playwright server and browser, it then creates a new context and page with the stealth extensions loaded
 func StartPlaywright(headless bool) (page playwright.Page, context playwright.BrowserContext, browser playwright.Browser, pw *playwright.Playwright) {
 	pw, err := playwright.Run()
 	if err != nil {
@@ -64,6 +115,7 @@ func StartPlaywright(headless bool) (page playwright.Page, context playwright.Br
 
 func StopPlaywright(page playwright.Page, context playwright.BrowserContext, browser playwright.Browser, pw *playwright.Playwright) {
 	// save session state
+	log.Info().Msg("saving state")
 	stateFileName := viper.GetString("state_file")
 	storage, err := context.StorageState(stateFileName)
 	if err != nil {
@@ -71,14 +123,17 @@ func StopPlaywright(page playwright.Page, context playwright.BrowserContext, bro
 	}
 	log.Info().Int("NumCookies", len(storage.Cookies)).Msg("session state")
 
+	log.Info().Msg("closing context")
 	if err = context.Close(); err != nil {
 		log.Error().Err(err).Msg("error encountered when closing context")
 	}
 
+	log.Info().Msg("closing browser")
 	if err = browser.Close(); err != nil {
 		log.Error().Err(err).Msg("error encountered when closing browser")
 	}
 
+	log.Info().Msg("stopping playwright")
 	if err = pw.Stop(); err != nil {
 		log.Error().Err(err).Msg("error encountered when stopping playwright")
 	}

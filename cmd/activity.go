@@ -15,18 +15,46 @@
 package cmd
 
 import (
+	"encoding/hex"
+	"os"
+
+	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/penny-vault/import-fidelity/fidelity"
-	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/xitongsys/parquet-go-source/local"
+	"github.com/xitongsys/parquet-go/parquet"
+	"github.com/xitongsys/parquet-go/writer"
 )
+
+var printTransactions bool
+var saveTransactionsToParquet string
+
+type parquetTransaction struct {
+	Account       string
+	ID            string
+	Commission    float64
+	CompositeFIGI string
+	Date          string
+	Kind          string
+	Memo          string
+	PricePerShare float64
+	Shares        float64
+	Source        string
+	SourceID      string
+	Ticker        string
+	TotalValue    float64
+}
 
 func init() {
 	rootCmd.AddCommand(activityCmd)
 
 	activityCmd.Flags().BoolP("show-browser", "d", true, "don't run the browser in headless mode")
 	viper.BindPFlag("show_browser", activityCmd.Flags().Lookup("show-browser"))
+
+	activityCmd.Flags().BoolVar(&printTransactions, "print", true, "print transactions to the screen")
+	activityCmd.Flags().StringVar(&saveTransactionsToParquet, "save-parquet", "", "save transactions to parquet file")
 }
 
 var activityCmd = &cobra.Command{
@@ -34,18 +62,104 @@ var activityCmd = &cobra.Command{
 	Short: "Download account activity",
 	Long:  `Retrieves the account activity for the last 10 days`,
 	Run: func(cmd *cobra.Command, args []string) {
-
 		page, context, browser, pw := fidelity.StartPlaywright(false)
+		fidelity.Login(page)
 
-		// load the activity page
-		if _, err := page.Goto(fidelity.ACTIVITY_URL, playwright.PageGotoOptions{
-			WaitUntil: playwright.WaitUntilStateNetworkidle,
-		}); err != nil {
-			log.Error().Err(err).Msg("could not load activity page")
+		transactions, err := fidelity.AccountActivity(page)
+		if err == nil {
+			if printTransactions {
+				t := table.NewWriter()
+				t.SetOutputMirror(os.Stdout)
+				t.AppendHeader(table.Row{"Account Number", "Date", "Kind", "Ticker", "Price Per Share", "Shares", "Total", "Memo", "Source ID", "Transaction ID"})
+				for acctNum, trxList := range transactions {
+					for _, trx := range trxList {
+						t.AppendRow(table.Row{
+							acctNum,
+							trx.Date.Format("2006-01-02"),
+							trx.Kind,
+							trx.Ticker,
+							trx.PricePerShare,
+							trx.Shares,
+							trx.TotalValue,
+							trx.Memo,
+							trx.SourceID,
+							hex.EncodeToString(trx.ID),
+						})
+					}
+				}
+				t.Render()
+			}
+
+			// write parquet file
+			if saveTransactionsToParquet != "" {
+				log.Info().Str("fn", saveTransactionsToParquet).Msg("save transactions to parquet")
+				fh, err := local.NewLocalFileWriter(saveTransactionsToParquet)
+				if err != nil {
+					log.Error().Err(err).Msg("can't create parquet transaction file")
+					return
+				}
+
+				// parquet schema
+				schema := `
+				{
+				  "Tag": "name=parquet_go_root, repetitiontype=REQUIRED",
+				  "Fields": [
+					{"Tag": "name=account, inname=Account, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=id, inname=ID, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=commission, inname=Commission, type=DOUBLE, repetitiontype=REQUIRED"},
+					{"Tag": "name=compositeFigi, inname=CompositeFIGI, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=date, inname=Date, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=kind, inname=Kind, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=memo, inname=Memo, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=pricePerShare, inname=PricePerShare, type=DOUBLE, repetitiontype=REQUIRED"},
+					{"Tag": "name=shares, inname=Shares, type=DOUBLE, repetitiontype=REQUIRED"},
+					{"Tag": "name=source, inname=Source, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=sourceId, inname=SourceID, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=ticker, inname=Ticker, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+					{"Tag": "name=totalValue, inname=TotalValue, type=DOUBLE, repetitiontype=REQUIRED"}
+					]
+				}
+				`
+
+				pw, err := writer.NewParquetWriter(fh, schema, 4)
+				if err != nil {
+					log.Error().Err(err).Msg("can't create parquet writer")
+					return
+				}
+
+				pw.RowGroupSize = 128 * 1024 * 1024 // 128M
+				pw.CompressionType = parquet.CompressionCodec_GZIP
+
+				for acctNum, trxList := range transactions {
+					for _, trx := range trxList {
+						if err = pw.Write(parquetTransaction{
+							Account:       acctNum,
+							ID:            hex.EncodeToString(trx.ID),
+							Commission:    trx.Commission,
+							CompositeFIGI: trx.CompositeFIGI,
+							Date:          trx.Date.Format("2006-01-02"),
+							Kind:          trx.Kind,
+							Memo:          trx.Memo,
+							PricePerShare: trx.PricePerShare,
+							Shares:        trx.Shares,
+							Source:        trx.Source,
+							SourceID:      trx.SourceID,
+							Ticker:        trx.Ticker,
+							TotalValue:    trx.TotalValue,
+						}); err != nil {
+							log.Error().Err(err).Msg("error writing transaction to parquet")
+						}
+					}
+				}
+
+				if err = pw.WriteStop(); err != nil {
+					log.Error().Err(err).Msg("WriteStop error")
+				}
+
+				fh.Close()
+			}
+
 		}
-
-		req := page.WaitForRequest(fidelity.ACTIVITY_API_URL)
-
 		fidelity.StopPlaywright(page, context, browser, pw)
 	},
 }

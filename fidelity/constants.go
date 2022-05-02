@@ -19,6 +19,7 @@ const (
 	HOMEPAGE_URL     = `https://fidelity.com/`
 	LOGIN_URL        = `https://digital.fidelity.com/prgw/digital/login/full-page`
 	LOGOUT_URL       = `https://login.fidelity.com/ftgw/Fidelity/RtlCust/Logout/Init?AuthRedUrl=https://www.fidelity.com/customer-service/customer-logout`
-	ACTIVITY_URL     = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#summary`
+	SUMMARY_URL      = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#summary`
+	ACTIVITY_URL     = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#activity`
 	ACTIVITY_API_URL = `https://digital.fidelity.com/ftgw/digital/acct-activity/activity-tab-history/api`
 )

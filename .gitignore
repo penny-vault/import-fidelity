@@ -18,6 +18,9 @@ state.json
 *.list
 *.result
 
+# configuration files
+import-fidelity.toml
+
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
