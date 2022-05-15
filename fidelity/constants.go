@@ -24,4 +24,5 @@ const (
 	ACTIVITY_API_URL = `https://digital.fidelity.com/ftgw/digital/acct-activity/activity-tab-history/api`
 	QUOTE_URL        = `https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=%s`
 	MARKET_DATA_URL  = `https://api.markitdigital.com/xref/v1/symbols/%s`
+	CUSIP_URL        = `https://quotes.fidelity.com/mmnet/SymLookup.phtml?reqforlookup=REQUESTFORLOOKUP&productid=mmnet&isLoggedIn=mmnet&rows=50&for=%s&by=symbol&criteria=%s&submit=Search`
 )

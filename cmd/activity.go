@@ -29,7 +29,6 @@ import (
 )
 
 var printTransactions bool
-var saveTransactionsToParquet string
 
 type parquetTransaction struct {
 	Account       string
@@ -51,7 +50,6 @@ func init() {
 	rootCmd.AddCommand(activityCmd)
 
 	activityCmd.Flags().BoolVar(&printTransactions, "print", true, "print transactions to the screen")
-	activityCmd.Flags().StringVar(&saveTransactionsToParquet, "save-parquet", "", "save transactions to parquet file")
 }
 
 var activityCmd = &cobra.Command{
@@ -88,9 +86,9 @@ var activityCmd = &cobra.Command{
 			}
 
 			// write parquet file
-			if saveTransactionsToParquet != "" {
-				log.Info().Str("fn", saveTransactionsToParquet).Msg("save transactions to parquet")
-				fh, err := local.NewLocalFileWriter(saveTransactionsToParquet)
+			if viper.GetString("parquet_file") != "" {
+				log.Info().Str("fn", viper.GetString("parquet_file")).Msg("save transactions to parquet")
+				fh, err := local.NewLocalFileWriter(viper.GetString("parquet_file"))
 				if err != nil {
 					log.Error().Err(err).Msg("can't create parquet transaction file")
 					return

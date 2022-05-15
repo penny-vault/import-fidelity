@@ -16,69 +16,67 @@ limitations under the License.
 package fidelity
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 
 	"github.com/go-resty/resty/v2"
+	"github.com/penny-vault/import-fidelity/common"
+	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
 	"github.com/tidwall/gjson"
-	"github.com/xitongsys/parquet-go-source/local"
-	"github.com/xitongsys/parquet-go/parquet"
-	"github.com/xitongsys/parquet-go/writer"
 )
 
-type Asset struct {
-	Name      string `json:"name" parquet:"name=Name, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	Ticker    string `json:"ticker" parquet:"name=Ticker, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	Exchange  string `json:"exchange" parquet:"name=Exchange, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	AssetType string `json:"asset_type" parquet:"name=AssetType, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	Currency  string `json:"currency_iso" parquet:"name=Currency, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	CIK       string `json:"cik" parquet:"name=CIK, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	CUSIP     string `json:"cusip" parquet:"name=CUSIP, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-}
+func FetchTickerData(asset *common.Asset, page playwright.Page) error {
+	assetType := "stock"
+	if asset.AssetType == common.MutualFund {
+		assetType = "fund"
+	}
+	url := fmt.Sprintf(CUSIP_URL, assetType, asset.Ticker)
+	if _, err := page.Goto(url, playwright.PageGotoOptions{
+		WaitUntil: playwright.WaitUntilStateNetworkidle,
+	}); err != nil {
+		log.Error().Err(err).Msg("could not load asset page")
+	}
 
-func SaveToParquet(records []*Asset, fn string) error {
-	var err error
-
-	fh, err := local.NewLocalFileWriter(fn)
+	// name
+	selector := "body > table > tbody > tr > td:nth-child(2) > table:nth-child(4) > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(1) > font"
+	locator, err := page.Locator(selector)
 	if err != nil {
-		log.Error().Str("OriginalError", err.Error()).Str("FileName", fn).Msg("cannot create local file")
+		log.Error().Err(err).Msg("could not create locator for name")
 		return err
 	}
-	defer fh.Close()
 
-	pw, err := writer.NewParquetWriter(fh, new(Asset), 4)
+	cnt, err := locator.Count()
 	if err != nil {
-		log.Error().
-			Str("OriginalError", err.Error()).
-			Msg("Parquet write failed")
+		log.Error().Err(err).Msg("could not fetch locator")
 		return err
 	}
 
-	pw.RowGroupSize = 128 * 1024 * 1024 // 128M
-	pw.PageSize = 8 * 1024              // 8k
-	pw.CompressionType = parquet.CompressionCodec_GZIP
-
-	for _, r := range records {
-		if err = pw.Write(r); err != nil {
-			log.Error().
-				Str("OriginalError", err.Error()).
-				Str("Ticker", r.Ticker).
-				Msg("Parquet write failed for record")
-		}
+	if cnt == 0 {
+		return nil
 	}
 
-	if err = pw.WriteStop(); err != nil {
-		log.Error().Str("OriginalError", err.Error()).Msg("Parquet write failed")
+	// cusip
+	selector = "body > table > tbody > tr > td:nth-child(2) > table:nth-child(4) > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(3) > font"
+	locator, err = page.Locator(selector)
+	if err != nil {
+		log.Error().Err(err).Msg("could not create locator")
 		return err
 	}
 
-	log.Info().Int("NumRecords", len(records)).Msg("Parquet write finished")
+	asset.CUSIP, err = locator.InnerText()
+	if err != nil {
+		log.Error().Err(err).Msg("could not evalute locator for cusip")
+		return err
+	}
+	asset.CUSIP = strings.TrimSpace(asset.CUSIP)
 	return nil
 }
 
-func FetchStockTickerData(symbol string, bearerToken string) *Asset {
-	symbol = strings.Replace(symbol, ".", "%2F", -1)
+func FetchStockTickerData(asset *common.Asset, bearerToken string) error {
+	symbol := strings.Replace(asset.Ticker, ".", "%2F", -1)
+	symbol = strings.Replace(symbol, "/", "%2F", -1)
 
 	client := resty.New()
 	url := fmt.Sprintf(MARKET_DATA_URL, symbol)
@@ -94,6 +92,7 @@ func FetchStockTickerData(symbol string, bearerToken string) *Asset {
 			Err(err).
 			Str("Url", url).
 			Msg("http request failed")
+		return err
 	}
 	if resp.StatusCode() >= 400 {
 		log.Error().
@@ -101,18 +100,10 @@ func FetchStockTickerData(symbol string, bearerToken string) *Asset {
 			Str("Url", url).
 			Bytes("Body", resp.Body()).
 			Msg("invalid status code received")
+		return errors.New("bad http response")
 	}
 
 	body := string(resp.Body())
-	asset := &Asset{
-		Name:      gjson.Get(body, "data.name").String(),
-		Ticker:    gjson.Get(body, "data.symbol").String(),
-		Exchange:  gjson.Get(body, "data.exchange.name").String(),
-		AssetType: gjson.Get(body, "data.classification.name").String(),
-		Currency:  gjson.Get(body, "data.currencyIso").String(),
-		CIK:       gjson.Get(body, `data.supplementalData.#(name=="cik").value`).String(),
-		CUSIP:     gjson.Get(body, `data.supplementalData.#(name=="cusip").value`).String(),
-	}
-
-	return asset
+	asset.CUSIP = gjson.Get(body, `data.supplementalData.#(name=="cusip").value`).String()
+	return nil
 }
