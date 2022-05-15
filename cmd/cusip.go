@@ -122,7 +122,7 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 
 		noCusip := make([]*common.Asset, 0, len(assets))
 		for _, asset := range assets {
-			if asset.CUSIP == "" {
+			if asset.CUSIP == "" && !asset.FidelityCusip {
 				noCusip = append(noCusip, asset)
 			}
 		}
@@ -141,6 +141,7 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 		for _, asset := range noCusip {
 			limit.Take()
 			bar.Add(1)
+			asset.FidelityCusip = true
 			var err error
 			if asset.AssetType == common.MutualFund {
 				err = fidelity.FetchTickerData(asset, page)

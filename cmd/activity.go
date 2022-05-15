@@ -116,18 +116,18 @@ var activityCmd = &cobra.Command{
 				}
 				`
 
-				pw, err := writer.NewParquetWriter(fh, schema, 4)
+				parquetWriter, err := writer.NewParquetWriter(fh, schema, 4)
 				if err != nil {
 					log.Error().Err(err).Msg("can't create parquet writer")
 					return
 				}
 
-				pw.RowGroupSize = 128 * 1024 * 1024 // 128M
-				pw.CompressionType = parquet.CompressionCodec_GZIP
+				parquetWriter.RowGroupSize = 128 * 1024 * 1024 // 128M
+				parquetWriter.CompressionType = parquet.CompressionCodec_GZIP
 
 				for acctNum, trxList := range transactions {
 					for _, trx := range trxList {
-						if err = pw.Write(parquetTransaction{
+						if err = parquetWriter.Write(parquetTransaction{
 							Account:       acctNum,
 							ID:            hex.EncodeToString(trx.ID),
 							Commission:    trx.Commission,
@@ -147,7 +147,7 @@ var activityCmd = &cobra.Command{
 					}
 				}
 
-				if err = pw.WriteStop(); err != nil {
+				if err = parquetWriter.WriteStop(); err != nil {
 					log.Error().Err(err).Msg("WriteStop error")
 				}
 
