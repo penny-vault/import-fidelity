@@ -118,18 +118,24 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 	trxMap := map[string][]*pvlib.Transaction{}
 	result := gjson.Get(bodyStr, "transaction.txnDetails.txnDetail")
 	result.ForEach(func(key, value gjson.Result) bool {
+		// skip intraday activity
+		if value.Get("intradayInd").Bool() {
+			return true
+		}
+
 		id := uuid.New()
 		idBinary, err := id.MarshalBinary()
 		if err != nil {
 			subLog.Error().Err(err).Msg("could not marshal UUID to binary")
 		}
+
 		date, err := time.Parse("01/02/2006", value.Get("date").String())
 		if err != nil {
 			log.Error().Err(err).Str("DateValue", value.Get("date").String()).Msg("could not parse transaction date")
 			return true
 		}
 
-		date = date.In(nyc)
+		date = time.Date(date.Year(), date.Month(), date.Day(), 16, 0, 0, 0, nyc)
 
 		pricePerShare, err := strconv.ParseFloat(value.Get("amtDetail.price").String(), 64)
 		if err != nil {
@@ -199,7 +205,7 @@ func determineKind(shares float64, amount float64, ticker string, brokerageAccou
 		return pvlib.SellTransaction
 	}
 
-	if shares == 0 && ticker != "" && brokerageAccountType != "Cash" {
+	if shares == 0 && ticker != "" {
 		return pvlib.DividendTransaction
 	}
 
