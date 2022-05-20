@@ -161,7 +161,7 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 		// determine kind
 		trx.Kind = determineKind(trx.Shares, trx.TotalValue, trx.Ticker, value.Get("brokerageDetail.brokerageAccountType").String())
 
-		if trx.Kind == pvlib.WithdrawTransaction && trx.Ticker == "FCASH" {
+		if trx.Kind == pvlib.WithdrawTransaction && (trx.Ticker == "FCASH" || trx.Ticker == "SPAXX") {
 			// This is an investment in the FCASH holding which is effectively a cash investment.
 			// ignore the transaction
 			return true
