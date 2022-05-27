@@ -104,8 +104,8 @@ func initConfig() {
 		cobra.CheckErr(err)
 
 		// Search config in home directory with name ".import-fidelity" (without extension).
-		viper.AddConfigPath("/etc/import-fidelity/") // path to look for the config file in
-		viper.AddConfigPath(fmt.Sprintf("%s/.import-fidelity", home))
+		viper.AddConfigPath("/etc/") // path to look for the config file in
+		viper.AddConfigPath(fmt.Sprintf("%s/.config", home))
 		viper.AddConfigPath(".")
 		viper.SetConfigType("toml")
 		viper.SetConfigName("import-fidelity")
@@ -115,6 +115,8 @@ func initConfig() {
 
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
-		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+		log.Info().Str("ConfigFile", viper.ConfigFileUsed()).Msg("Loaded config file")
+	} else {
+		log.Error().Err(err).Msg("error reading config file")
 	}
 }
