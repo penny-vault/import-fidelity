@@ -87,6 +87,41 @@ type TransactionDetails struct {
 	TransactionDescription       string `json:"txnDescription"`
 }
 
+func isCoreHolding(ticker string) bool {
+	return ticker == "FCASH" || ticker == "SPAXX" || ticker == "FZFXX"
+}
+
+func determineTransactionKind(shares float64, amount float64, ticker string, isDeposit bool) string {
+	if isDeposit {
+		if isCoreHolding(ticker) {
+			return pvlib.InterestTransaction
+		} else if shares < 0 && ticker != "" {
+			return pvlib.SellTransaction
+		} else if ticker == "" {
+			return pvlib.DepositTransaction
+		}
+	}
+
+	if shares == 0 && ticker == "" {
+		return pvlib.WithdrawTransaction
+	}
+
+	if shares > 0 {
+		return pvlib.BuyTransaction
+	}
+
+	if shares < 0 {
+		return pvlib.SellTransaction
+	}
+
+	if shares == 0 && ticker != "" {
+		return pvlib.DividendTransaction
+	}
+
+	log.Error().Float64("Shares", shares).Float64("Amount", amount).Str("Ticker", ticker).Bool("isDeposit", isDeposit).Msg("could not determine transaction type")
+	return ""
+}
+
 func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, error) {
 	subLog := log.With().Str("Url", ACTIVITY_URL).Logger()
 	// load the activity page
@@ -111,12 +146,21 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 		return nil, err
 	}
 	bodyStr := string(body)
-	nyc, _ := time.LoadLocation("America/New_York")
+	trxMap, err := ParseAccountActivity(bodyStr)
+	if err != nil {
+		return nil, err
+	}
 
-	numTransactions := gjson.Get(bodyStr, "transaction.txnDetails.txnDetail.#").Int()
-	log.Debug().Int64("NumTransactions", numTransactions).Str("json", bodyStr).Msg("downloaded transactions")
-	trxMap := map[string][]*pvlib.Transaction{}
-	result := gjson.Get(bodyStr, "transaction.txnDetails.txnDetail")
+	return trxMap, nil
+}
+
+// ParseAccountActivity reads a json string with account activity downloaded from Fidelity
+func ParseAccountActivity(fidelityActivityJson string) (trxMap map[string][]*pvlib.Transaction, err error) {
+	nyc, _ := time.LoadLocation("America/New_York")
+	trxMap = make(map[string][]*pvlib.Transaction, 1)
+	numTransactions := gjson.Get(fidelityActivityJson, "transaction.txnDetails.txnDetail.#").Int()
+	log.Debug().Int64("NumTransactions", numTransactions).Msg("downloaded transactions")
+	result := gjson.Get(fidelityActivityJson, "transaction.txnDetails.txnDetail")
 	result.ForEach(func(key, value gjson.Result) bool {
 		// skip intraday activity
 		if value.Get("intradayInd").Bool() {
@@ -126,7 +170,8 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 		id := uuid.New()
 		idBinary, err := id.MarshalBinary()
 		if err != nil {
-			subLog.Error().Err(err).Msg("could not marshal UUID to binary")
+			log.Error().Err(err).Msg("could not marshal UUID to binary")
+			return false
 		}
 
 		date, err := time.Parse("01/02/2006", value.Get("date").String())
@@ -159,11 +204,12 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 		acctNum := value.Get("acctNum").String()
 
 		// determine kind
-		trx.Kind = determineKind(trx.Shares, trx.TotalValue, trx.Ticker, value.Get("brokerageDetail.brokerageAccountType").String())
+		trx.Kind = determineTransactionKind(trx.Shares, trx.TotalValue, trx.Ticker, value.Get("isDeposit").Bool())
 
-		if trx.Kind == pvlib.WithdrawTransaction && (trx.Ticker == "FCASH" || trx.Ticker == "SPAXX") {
-			// This is an investment in the FCASH holding which is effectively a cash investment.
+		if trx.Kind == pvlib.BuyTransaction && isCoreHolding(trx.Ticker) {
+			// This is an investment in the core holding which is effectively a cash investment.
 			// ignore the transaction
+			log.Debug().Object("Transaction", &trx).Msg("skipping transaction moving money to core investment")
 			return true
 		}
 
@@ -185,30 +231,5 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 		return true
 	})
 
-	return trxMap, nil
-}
-
-func determineKind(shares float64, amount float64, ticker string, brokerageAccountType string) string {
-	if brokerageAccountType == "Cash" {
-		if amount >= 0 {
-			return pvlib.DepositTransaction
-		} else {
-			return pvlib.WithdrawTransaction
-		}
-	}
-
-	if shares > 0 {
-		return pvlib.BuyTransaction
-	}
-
-	if shares < 0 {
-		return pvlib.SellTransaction
-	}
-
-	if shares == 0 && ticker != "" {
-		return pvlib.DividendTransaction
-	}
-
-	log.Error().Float64("Shares", shares).Float64("Amount", amount).Str("Ticker", ticker).Str("BrokerageAccountType", brokerageAccountType).Msg("could not determine transaction type")
-	return ""
+	return
 }
