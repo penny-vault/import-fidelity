@@ -34,7 +34,7 @@ For a complete list of configuration parameters run `import-fidelity --help`
 
 ## Exit codes
 
-32 - Activity page error
-33 - Backblaze error
-34 - Login error
-35 - Write parquet
+ * 32 - Activity page error
+ * 33 - Backblaze error
+ * 34 - Login error
+ * 35 - Write parquet
