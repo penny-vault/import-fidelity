@@ -17,6 +17,7 @@ state.json
 *.csv
 *.list
 *.result
+*.xml
 
 # configuration files
 import-fidelity.toml

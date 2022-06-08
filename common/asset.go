@@ -1,3 +1,18 @@
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package common
 
 import (
@@ -36,8 +51,8 @@ type Asset struct {
 	Industry             string   `json:"industry" parquet:"name=industry, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
 	Sector               string   `json:"sector" parquet:"name=sector, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
 	Icon                 []byte   `json:"icon"`
-	IconUrl              string   `json:"icon_url" parquet:"name=icon_url, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
-	CorporateUrl         string   `json:"corporate_url" parquet:"name=corporate_url, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
+	IconURL              string   `json:"icon_url" parquet:"name=icon_url, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
+	CorporateURL         string   `json:"corporate_url" parquet:"name=corporate_url, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
 	HeadquartersLocation string   `json:"headquarters_location" parquet:"name=headquarters_location, type=BYTE_ARRAY, convertedtype=UTF8, encoding=PLAIN_DICTIONARY"`
 	SimilarTickers       []string `json:"similar_tickers" parquet:"name=similar_tickers, type=MAP, convertedtype=LIST, valuetype=BYTE_ARRAY, valueconvertedtype=UTF8"`
 	PolygonDetailAge     int64    `json:"polygon_detail_age" parquet:"name=polygon_detail_age, type=INT64"`
@@ -143,8 +158,8 @@ func (asset *Asset) MarshalZerologObject(e *zerolog.Event) {
 	e.Str("DelistingDate", asset.DelistingDate)
 	e.Str("Industry", asset.Industry)
 	e.Str("Sector", asset.Sector)
-	e.Str("IconUrl", asset.IconUrl)
-	e.Str("CorporateUrl", asset.CorporateUrl)
+	e.Str("IconUrl", asset.IconURL)
+	e.Str("CorporateUrl", asset.CorporateURL)
 	e.Str("HeadquartersLocation", asset.HeadquartersLocation)
 	e.Str("Source", asset.Source)
 	e.Int64("PolygonDetailAge", asset.PolygonDetailAge)

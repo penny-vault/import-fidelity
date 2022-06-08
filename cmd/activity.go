@@ -1,4 +1,5 @@
-// Copyright 2021
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,6 +20,7 @@ import (
 	"os"
 
 	"github.com/jedib0t/go-pretty/v6/table"
+	"github.com/penny-vault/import-fidelity/errorcode"
 	"github.com/penny-vault/import-fidelity/fidelity"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
@@ -58,44 +60,51 @@ var activityCmd = &cobra.Command{
 	Long:  `Retrieves the account activity for the last 10 days`,
 	Run: func(cmd *cobra.Command, args []string) {
 		page, context, browser, pw := fidelity.StartPlaywright(!viper.GetBool("show_browser"))
-		fidelity.Login(page)
+		if err := fidelity.Login(page); err != nil {
+			fidelity.StopPlaywright(page, context, browser, pw)
+			os.Exit(errorcode.Login)
+		}
 
 		transactions, err := fidelity.AccountActivity(page)
-		if err == nil {
-			if printTransactions {
-				t := table.NewWriter()
-				t.SetOutputMirror(os.Stdout)
-				t.AppendHeader(table.Row{"Account Number", "Date", "Kind", "Ticker", "Price Per Share", "Shares", "Total", "Memo", "Source ID", "Transaction ID"})
-				for acctNum, trxList := range transactions {
-					for _, trx := range trxList {
-						t.AppendRow(table.Row{
-							acctNum,
-							trx.Date.Format("2006-01-02"),
-							trx.Kind,
-							trx.Ticker,
-							trx.PricePerShare,
-							trx.Shares,
-							trx.TotalValue,
-							trx.Memo,
-							trx.SourceID,
-							hex.EncodeToString(trx.ID),
-						})
-					}
+		if err != nil {
+			fidelity.StopPlaywright(page, context, browser, pw)
+			os.Exit(errorcode.Activity)
+		}
+
+		if printTransactions {
+			t := table.NewWriter()
+			t.SetOutputMirror(os.Stdout)
+			t.AppendHeader(table.Row{"Account Number", "Date", "Kind", "Ticker", "Price Per Share", "Shares", "Total", "Memo", "Source ID", "Transaction ID"})
+			for acctNum, trxList := range transactions {
+				for _, trx := range trxList {
+					t.AppendRow(table.Row{
+						acctNum,
+						trx.Date.Format("2006-01-02"),
+						trx.Kind,
+						trx.Ticker,
+						trx.PricePerShare,
+						trx.Shares,
+						trx.TotalValue,
+						trx.Memo,
+						trx.SourceID,
+						hex.EncodeToString(trx.ID),
+					})
 				}
-				t.Render()
+			}
+			t.Render()
+		}
+
+		// write parquet file
+		if viper.GetString("parquet_file") != "" {
+			log.Info().Str("fn", viper.GetString("parquet_file")).Msg("save transactions to parquet")
+			fh, err := local.NewLocalFileWriter(viper.GetString("parquet_file"))
+			if err != nil {
+				log.Error().Err(err).Msg("can't create parquet transaction file")
+				return
 			}
 
-			// write parquet file
-			if viper.GetString("parquet_file") != "" {
-				log.Info().Str("fn", viper.GetString("parquet_file")).Msg("save transactions to parquet")
-				fh, err := local.NewLocalFileWriter(viper.GetString("parquet_file"))
-				if err != nil {
-					log.Error().Err(err).Msg("can't create parquet transaction file")
-					return
-				}
-
-				// parquet schema
-				schema := `
+			// parquet schema
+			schema := `
 				{
 				  "Tag": "name=parquet_go_root, repetitiontype=REQUIRED",
 				  "Fields": [
@@ -116,45 +125,42 @@ var activityCmd = &cobra.Command{
 				}
 				`
 
-				parquetWriter, err := writer.NewParquetWriter(fh, schema, 4)
-				if err != nil {
-					log.Error().Err(err).Msg("can't create parquet writer")
-					return
-				}
-
-				parquetWriter.RowGroupSize = 128 * 1024 * 1024 // 128M
-				parquetWriter.CompressionType = parquet.CompressionCodec_GZIP
-
-				for acctNum, trxList := range transactions {
-					for _, trx := range trxList {
-						if err = parquetWriter.Write(parquetTransaction{
-							Account:       acctNum,
-							ID:            hex.EncodeToString(trx.ID),
-							Commission:    trx.Commission,
-							CompositeFIGI: trx.CompositeFIGI,
-							Date:          trx.Date.Format("2006-01-02"),
-							Kind:          trx.Kind,
-							Memo:          trx.Memo,
-							PricePerShare: trx.PricePerShare,
-							Shares:        trx.Shares,
-							Source:        trx.Source,
-							SourceID:      trx.SourceID,
-							Ticker:        trx.Ticker,
-							TotalValue:    trx.TotalValue,
-						}); err != nil {
-							log.Error().Err(err).Msg("error writing transaction to parquet")
-						}
-					}
-				}
-
-				if err = parquetWriter.WriteStop(); err != nil {
-					log.Error().Err(err).Msg("WriteStop error")
-				}
-
-				fh.Close()
+			parquetWriter, err := writer.NewParquetWriter(fh, schema, 4)
+			if err != nil {
+				log.Error().Err(err).Msg("can't create parquet writer")
+				return
 			}
 
+			parquetWriter.RowGroupSize = 128 * 1024 * 1024 // 128M
+			parquetWriter.CompressionType = parquet.CompressionCodec_GZIP
+
+			for acctNum, trxList := range transactions {
+				for _, trx := range trxList {
+					if err = parquetWriter.Write(parquetTransaction{
+						Account:       acctNum,
+						ID:            hex.EncodeToString(trx.ID),
+						Commission:    trx.Commission,
+						CompositeFIGI: trx.CompositeFIGI,
+						Date:          trx.Date.Format("2006-01-02"),
+						Kind:          trx.Kind,
+						Memo:          trx.Memo,
+						PricePerShare: trx.PricePerShare,
+						Shares:        trx.Shares,
+						Source:        trx.Source,
+						SourceID:      trx.SourceID,
+						Ticker:        trx.Ticker,
+						TotalValue:    trx.TotalValue,
+					}); err != nil {
+						log.Error().Err(err).Msg("error writing transaction to parquet")
+					}
+				}
+			}
+
+			if err = parquetWriter.WriteStop(); err != nil {
+				log.Error().Err(err).Msg("WriteStop error")
+			}
+
+			fh.Close()
 		}
-		fidelity.StopPlaywright(page, context, browser, pw)
 	},
 }

@@ -1,0 +1,47 @@
+run:
+  timeout: 15m
+  tests: true
+
+linters:
+  enable:
+    - megacheck
+    - govet
+    - goconst
+    - gocritic
+    - gocyclo
+    - goerr113
+    - goheader
+    - gofmt
+    - goimports
+    - revive
+    - misspell
+  disable:
+    - scopelint # Obsolete, using exportloopref instead
+    - durationcheck
+  presets:
+    - bugs
+    - unused
+  fast: false
+
+linters-settings:
+  nestif:
+    min-complexity: 6
+  goheader:
+    template-path: code-header-template.txt
+
+issues:
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - deadcode
+        - errorlint
+    - path: backblaze/backblaze\.go
+      text: "G401:" # Backblaze uses sha1 for file integrity check
+      linters:
+        - gosec
+    - path: backblaze/backblaze\.go
+      text: "G505:" # Backblaze uses sha1 for file integrity check
+      linters:
+        - gosec

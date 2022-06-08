@@ -9,7 +9,9 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.3.1
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.13.0
-	github.com/penny-vault/pvlib v0.0.0-20220508161520-1f8fc378a624
+	github.com/onsi/ginkgo/v2 v2.1.4
+	github.com/onsi/gomega v1.19.0
+	github.com/penny-vault/pvlib v0.0.0-20220603061020-95069c81448c
 	github.com/playwright-community/playwright-go v0.2000.1
 	github.com/rs/zerolog v1.26.1
 	github.com/schollz/progressbar/v3 v3.8.6
@@ -17,7 +19,7 @@ require (
 	github.com/spf13/viper v1.12.0
 	github.com/tidwall/gjson v1.14.1
 	github.com/xitongsys/parquet-go v1.6.2
-	github.com/xitongsys/parquet-go-source v0.0.0-20220315005136-aec0fe3e777c
+	github.com/xitongsys/parquet-go-source v0.0.0-20220527110425-ba4adb87a31b
 	go.uber.org/ratelimit v0.2.0
 	golang.org/x/term v0.0.0-20220526004731-065cf7ba2467
 	lukechampine.com/blake3 v1.1.7
@@ -51,19 +53,19 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/subosito/gotenv v1.3.0 // indirect
+	github.com/subosito/gotenv v1.4.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/ysmood/goob v0.4.0 // indirect
 	github.com/ysmood/gson v0.7.1 // indirect
 	github.com/ysmood/leakless v0.7.0 // indirect
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e // indirect
-	golang.org/x/net v0.0.0-20220526153639-5463443f8c37 // indirect
+	golang.org/x/net v0.0.0-20220531201128-c960675eff93 // indirect
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/xerrors v0.0.0-20220517211312-f3a8303e98df // indirect
-	gopkg.in/ini.v1 v1.66.4 // indirect
+	gopkg.in/ini.v1 v1.66.6 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

@@ -13,26 +13,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package common
+package fidelity_test
 
 import (
-	"github.com/go-rod/stealth"
-	"github.com/playwright-community/playwright-go"
-	"github.com/rs/zerolog/log"
+	"testing"
+
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
+	"github.com/rs/zerolog"
 )
 
-// StealthPage creates a new playwright page with stealth js loaded to prevent bot detection
-func StealthPage(context *playwright.BrowserContext) playwright.Page {
-	page, err := (*context).NewPage()
-	if err != nil {
-		log.Error().Err(err).Msg("could not create page")
-	}
-
-	if err = page.AddInitScript(playwright.PageAddInitScriptOptions{
-		Script: playwright.String(stealth.JS),
-	}); err != nil {
-		log.Error().Err(err).Msg("could not load stealth mode")
-	}
-
-	return page
+func TestFidelity(t *testing.T) {
+	RegisterFailHandler(Fail)
+	zerolog.SetGlobalLevel(zerolog.InfoLevel)
+	RunSpecs(t, "Fidelity Suite")
 }

@@ -1,4 +1,5 @@
-// Copyright 2021
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,6 +16,9 @@
 package cmd
 
 import (
+	"os"
+
+	"github.com/penny-vault/import-fidelity/errorcode"
 	"github.com/penny-vault/import-fidelity/fidelity"
 	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
@@ -38,18 +42,21 @@ use the automated login on future runs.`,
 		page, context, browser, pw := fidelity.StartPlaywright(false)
 
 		// load the default homepage
-		if _, err := page.Goto(fidelity.HOMEPAGE_URL, playwright.PageGotoOptions{
+		if _, err := page.Goto(fidelity.HomePageURL, playwright.PageGotoOptions{
 			WaitUntil: playwright.WaitUntilStateNetworkidle,
 		}); err != nil {
 			log.Error().Err(err).Msg("could not load login page")
 		}
 
 		// Wait for the user to press login button
-		page.WaitForNavigation()
+		if _, err := page.WaitForNavigation(); err != nil {
+			log.Error().Err(err).Msg("error waiting for navigation on login")
+			os.Exit(errorcode.Login)
+		}
 		page.WaitForTimeout(30000)
 
 		// load the activity page
-		if _, err := page.Goto(fidelity.ACTIVITY_URL, playwright.PageGotoOptions{
+		if _, err := page.Goto(fidelity.ActivityURL, playwright.PageGotoOptions{
 			WaitUntil: playwright.WaitUntilStateNetworkidle,
 		}); err != nil {
 			log.Error().Err(err).Msg("could not load activity page")
