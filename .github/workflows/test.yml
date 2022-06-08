@@ -1,10 +1,7 @@
 name: Test
 on:
   push:
-  pull_request:
-permissions:
-  contents: read
-  pull-requests: write
+  pull_request_target:
 jobs:
   ginkgo:
     name: ginkgo
