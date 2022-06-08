@@ -15,7 +15,8 @@ mage build
 2. install playwright OS dependencies
 
 ```bash
-import-fidelity install-deps
+go install github.com/playwright-community/playwright-go/cmd/playwright@latest
+playwright install --with-deps chromium
 ```
 
 # Configuration
