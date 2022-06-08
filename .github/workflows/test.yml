@@ -24,5 +24,4 @@ jobs:
         if: always() # always run even if the previous step fails
         with:
           report_paths: 'test-report.xml'
-          github_token: ${{ github.token }}
           check_name: 'Ginkgo Test Report (OS: ${{ matrix.os }})'
