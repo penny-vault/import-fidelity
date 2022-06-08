@@ -61,6 +61,10 @@ var _ = Describe("Activity", func() {
 				Expect(len(trxMap)).Should(Equal(3))
 			})
 
+			It("has test that failes", func() {
+				Expect(false).To(BeTrue())
+			})
+
 			It("has correct account numbers", func() {
 				_, ok := trxMap["238000000"]
 				Expect(ok).To(BeFalse(), "238000000")

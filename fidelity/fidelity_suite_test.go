@@ -25,6 +25,6 @@ import (
 
 func TestFidelity(t *testing.T) {
 	RegisterFailHandler(Fail)
-	zerolog.SetGlobalLevel(zerolog.InfoLevel)
+	zerolog.SetGlobalLevel(zerolog.DebugLevel)
 	RunSpecs(t, "Fidelity Suite")
 }
