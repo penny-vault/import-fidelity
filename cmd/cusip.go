@@ -1,4 +1,5 @@
-// Copyright 2021
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,6 +23,7 @@ import (
 	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/penny-vault/import-fidelity/backblaze"
 	"github.com/penny-vault/import-fidelity/common"
+	"github.com/penny-vault/import-fidelity/errorcode"
 	"github.com/penny-vault/import-fidelity/fidelity"
 	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
@@ -44,10 +46,10 @@ func init() {
 func getBearerToken(page playwright.Page) string {
 	log.Info().Msg("waiting for market data request")
 	symbol := "MSFT"
-	quoteUrl := fmt.Sprintf(fidelity.QUOTE_URL, symbol)
-	url := fmt.Sprintf(fidelity.MARKET_DATA_URL, symbol)
+	quoteURL := fmt.Sprintf(fidelity.QuoteURL, symbol)
+	url := fmt.Sprintf(fidelity.MarketDataURL, symbol)
 	req, err := page.ExpectRequest(url, func() error {
-		_, err := page.Goto(quoteUrl)
+		_, err := page.Goto(quoteURL)
 		return err
 	})
 	if err != nil {
@@ -89,7 +91,9 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 		switch len(args) {
 		case 0:
 			if downloadFromBackblaze {
-				backblaze.Download(viper.GetString("parquet_file"), viper.GetString("backblaze.bucket"))
+				if err := backblaze.Download(viper.GetString("parquet_file"), viper.GetString("backblaze.bucket")); err != nil {
+					os.Exit(errorcode.Backblaze)
+				}
 			}
 			assets = common.ReadFromParquet(viper.GetString("parquet_file"))
 		case 1:
@@ -129,7 +133,10 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 
 		// start playwright
 		page, context, browser, pw := fidelity.StartPlaywright(!viper.GetBool("show_browser"))
-		fidelity.Login(page)
+		if err := fidelity.Login(page); err != nil {
+			fidelity.StopPlaywright(page, context, browser, pw)
+			os.Exit(errorcode.Login)
+		}
 
 		bearerToken := getBearerToken(page)
 
@@ -140,7 +147,9 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 		bar := progressbar.Default(int64(len(noCusip)))
 		for _, asset := range noCusip {
 			limit.Take()
-			bar.Add(1)
+			if err := bar.Add(1); err != nil {
+				log.Warn().Err(err).Msg("could not add to progress bar")
+			}
 			asset.FidelityCusip = true
 			var err error
 			if asset.AssetType == common.MutualFund {
@@ -157,13 +166,17 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 		t.Render()
 
 		if viper.GetString("parquet_file") != "" {
-			common.SaveToParquet(assets, viper.GetString("parquet_file"))
+			if err := common.SaveToParquet(assets, viper.GetString("parquet_file")); err != nil {
+				os.Exit(errorcode.WriteParquet)
+			}
 		}
 
 		fidelity.StopPlaywright(page, context, browser, pw)
 
 		if uploadToBackblaze {
-			backblaze.Upload(viper.GetString("parquet_file"), viper.GetString("backblaze.bucket"), ".")
+			if err := backblaze.Upload(viper.GetString("parquet_file"), viper.GetString("backblaze.bucket"), "."); err != nil {
+				os.Exit(errorcode.Backblaze)
+			}
 		}
 	},
 }

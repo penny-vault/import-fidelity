@@ -1,18 +1,18 @@
-/*
-Copyright 2022
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package fidelity
 
 import (
@@ -75,7 +75,7 @@ type TransactionDetails struct {
 			FloorTradingSymbol            string `json:"floorTradingSymbol"`
 			FloorTradingSymbolDescription string `json:"floorTradingSymbolDesc"`
 			QuoteText                     string `json:"quoteText"`
-			SecurityId                    string `json:"securityId"`
+			SecurityID                    string `json:"securityId"`
 		} `json:"securityDetail"`
 	} `json:"brokerageDetail"`
 
@@ -95,9 +95,13 @@ func determineTransactionKind(shares float64, amount float64, ticker string, isD
 	if isDeposit {
 		if isCoreHolding(ticker) {
 			return pvlib.InterestTransaction
-		} else if shares < 0 && ticker != "" {
+		}
+
+		if shares < 0 && ticker != "" {
 			return pvlib.SellTransaction
-		} else if ticker == "" {
+		}
+
+		if ticker == "" {
 			return pvlib.DepositTransaction
 		}
 	}
@@ -123,10 +127,10 @@ func determineTransactionKind(shares float64, amount float64, ticker string, isD
 }
 
 func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, error) {
-	subLog := log.With().Str("Url", ACTIVITY_URL).Logger()
+	subLog := log.With().Str("Url", ActivityURL).Logger()
 	// load the activity page
-	req, err := page.ExpectRequest(ACTIVITY_API_URL, func() error {
-		_, err := page.Goto(ACTIVITY_URL)
+	req, err := page.ExpectRequest(ActivityAPI, func() error {
+		_, err := page.Goto(ActivityURL)
 		return err
 	})
 	if err != nil {
@@ -155,12 +159,12 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 }
 
 // ParseAccountActivity reads a json string with account activity downloaded from Fidelity
-func ParseAccountActivity(fidelityActivityJson string) (trxMap map[string][]*pvlib.Transaction, err error) {
+func ParseAccountActivity(fidelityActivityJSON string) (trxMap map[string][]*pvlib.Transaction, err error) {
 	nyc, _ := time.LoadLocation("America/New_York")
 	trxMap = make(map[string][]*pvlib.Transaction, 1)
-	numTransactions := gjson.Get(fidelityActivityJson, "transaction.txnDetails.txnDetail.#").Int()
+	numTransactions := gjson.Get(fidelityActivityJSON, "transaction.txnDetails.txnDetail.#").Int()
 	log.Debug().Int64("NumTransactions", numTransactions).Msg("downloaded transactions")
-	result := gjson.Get(fidelityActivityJson, "transaction.txnDetails.txnDetail")
+	result := gjson.Get(fidelityActivityJSON, "transaction.txnDetails.txnDetail")
 	result.ForEach(func(key, value gjson.Result) bool {
 		// skip intraday activity
 		if value.Get("intradayInd").Bool() {

@@ -1,18 +1,18 @@
-/*
-Copyright 2022
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package fidelity
 
 import (
@@ -27,9 +27,9 @@ import (
 
 // check if the current session is expired; if it is login
 func Login(page playwright.Page) error {
-	subLog := log.With().Str("Url", SUMMARY_URL).Logger()
+	subLog := log.With().Str("Url", SummaryURL).Logger()
 
-	if _, err := page.Goto(SUMMARY_URL, playwright.PageGotoOptions{
+	if _, err := page.Goto(SummaryURL, playwright.PageGotoOptions{
 		WaitUntil: playwright.WaitUntilStateNetworkidle,
 	}); err != nil {
 		subLog.Error().Err(err).Msg("could not load activity page")
@@ -44,13 +44,24 @@ func Login(page playwright.Page) error {
 	cnt, err := locator.Count()
 	if err != nil {
 		subLog.Error().Err(err).Msg("error evaluating locator count")
+		return err
 	}
 	if cnt > 0 {
 		// session expired login
 		log.Info().Msg("session expired; login required")
-		page.Type("#userId-input", common.Username())
-		page.Type("#password", common.Password())
-		page.Click("#fs-login-button")
+		if err = page.Type("#userId-input", common.Username()); err != nil {
+			log.Error().Err(err).Msg("could not type in username input box")
+			return err
+		}
+
+		if err = page.Type("#password", common.Password()); err != nil {
+			log.Error().Err(err).Msg("could not type in password input box")
+			return err
+		}
+		if err = page.Click("#fs-login-button"); err != nil {
+			log.Error().Err(err).Msg("could not click login button")
+			return err
+		}
 		log.Info().Msg("waiting for 2 seconds")
 		page.WaitForTimeout(2000)
 	} else {

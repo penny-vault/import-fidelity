@@ -1,18 +1,18 @@
-/*
-Copyright 2022
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package cmd
 
 import (
@@ -59,32 +59,52 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is import-fidelity.toml)")
 
 	rootCmd.PersistentFlags().Bool("log.json", false, "print logs as json to stderr")
-	viper.BindPFlag("log.json", rootCmd.PersistentFlags().Lookup("log.json"))
+	if err := viper.BindPFlag("log.json", rootCmd.PersistentFlags().Lookup("log.json")); err != nil {
+		log.Error().Err(err).Msg("bind log.json")
+	}
 
 	rootCmd.PersistentFlags().String("backblaze-application-id", "<not-set>", "backblaze application id")
-	viper.BindPFlag("backblaze.application_id", rootCmd.PersistentFlags().Lookup("backblaze-application-id"))
+	if err := viper.BindPFlag("backblaze.application_id", rootCmd.PersistentFlags().Lookup("backblaze-application-id")); err != nil {
+		log.Error().Err(err).Msg("bind backblaze.application_id")
+	}
 	rootCmd.PersistentFlags().String("backblaze-application-key", "<not-set>", "backblaze application key")
-	viper.BindPFlag("backblaze.application_key", rootCmd.PersistentFlags().Lookup("backblaze-application-key"))
+	if err := viper.BindPFlag("backblaze.application_key", rootCmd.PersistentFlags().Lookup("backblaze-application-key")); err != nil {
+		log.Error().Err(err).Msg("bind backblaze.application_key")
+	}
 	rootCmd.PersistentFlags().String("backblaze-bucket", "ticker-info", "backblaze bucket")
-	viper.BindPFlag("backblaze.bucket", rootCmd.PersistentFlags().Lookup("backblaze-bucket"))
+	if err := viper.BindPFlag("backblaze.bucket", rootCmd.PersistentFlags().Lookup("backblaze-bucket")); err != nil {
+		log.Error().Err(err).Msg("bind backblaze.bucket")
+	}
 
 	rootCmd.PersistentFlags().Bool("show-browser", false, "don't run the browser in headless mode")
-	viper.BindPFlag("show_browser", rootCmd.PersistentFlags().Lookup("show-browser"))
+	if err := viper.BindPFlag("show_browser", rootCmd.PersistentFlags().Lookup("show-browser")); err != nil {
+		log.Error().Err(err).Msg("bind show_browser")
+	}
 
 	rootCmd.PersistentFlags().String("parquet-file", "tickers.parquet", "save results to parquet")
-	viper.BindPFlag("parquet_file", rootCmd.PersistentFlags().Lookup("parquet-file"))
+	if err := viper.BindPFlag("parquet_file", rootCmd.PersistentFlags().Lookup("parquet-file")); err != nil {
+		log.Error().Err(err).Msg("bind parquet_file")
+	}
 
 	rootCmd.PersistentFlags().StringP("username", "u", "", "encrypted fidelity username")
-	viper.BindPFlag("username", rootCmd.PersistentFlags().Lookup("username"))
+	if err := viper.BindPFlag("username", rootCmd.PersistentFlags().Lookup("username")); err != nil {
+		log.Error().Err(err).Msg("bind username")
+	}
 
 	rootCmd.PersistentFlags().StringP("pin", "p", "", "encrypted fidelity password")
-	viper.BindPFlag("pin", rootCmd.PersistentFlags().Lookup("pin"))
+	if err := viper.BindPFlag("pin", rootCmd.PersistentFlags().Lookup("pin")); err != nil {
+		log.Error().Err(err).Msg("bind pin")
+	}
 
 	rootCmd.PersistentFlags().String("state-file", "state.json", "store session state in the speficied file")
-	viper.BindPFlag("state_file", rootCmd.PersistentFlags().Lookup("state-file"))
+	if err := viper.BindPFlag("state_file", rootCmd.PersistentFlags().Lookup("state-file")); err != nil {
+		log.Error().Err(err).Msg("bind state_file")
+	}
 
 	rootCmd.PersistentFlags().String("user-agent", "", "user agent to use")
-	viper.BindPFlag("user_agent", rootCmd.PersistentFlags().Lookup("user-agent"))
+	if err := viper.BindPFlag("user_agent", rootCmd.PersistentFlags().Lookup("user-agent")); err != nil {
+		log.Error().Err(err).Msg("bind user_agent")
+	}
 }
 
 func initLog() {

@@ -1,18 +1,18 @@
-/*
-Copyright 2022
+// Copyright 2022
+// SPDX-License-Identifier: Apache-2.0
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package fidelity
 
 import (
@@ -27,12 +27,16 @@ import (
 	"github.com/tidwall/gjson"
 )
 
+var (
+	ErrBadHTTPResponse = errors.New("bad HTTP response")
+)
+
 func FetchTickerData(asset *common.Asset, page playwright.Page) error {
 	assetType := "stock"
 	if asset.AssetType == common.MutualFund {
 		assetType = "fund"
 	}
-	url := fmt.Sprintf(CUSIP_URL, assetType, asset.Ticker)
+	url := fmt.Sprintf(CUSIPURL, assetType, asset.Ticker)
 	if _, err := page.Goto(url, playwright.PageGotoOptions{
 		WaitUntil: playwright.WaitUntilStateNetworkidle,
 	}); err != nil {
@@ -75,11 +79,11 @@ func FetchTickerData(asset *common.Asset, page playwright.Page) error {
 }
 
 func FetchStockTickerData(asset *common.Asset, bearerToken string) error {
-	symbol := strings.Replace(asset.Ticker, ".", "%2F", -1)
-	symbol = strings.Replace(symbol, "/", "%2F", -1)
+	symbol := strings.ReplaceAll(asset.Ticker, ".", "%2F")
+	symbol = strings.ReplaceAll(symbol, "/", "%2F")
 
 	client := resty.New()
-	url := fmt.Sprintf(MARKET_DATA_URL, symbol)
+	url := fmt.Sprintf(MarketDataURL, symbol)
 	resp, err := client.
 		R().
 		SetHeader("Accept", "application/json").
@@ -100,7 +104,7 @@ func FetchStockTickerData(asset *common.Asset, bearerToken string) error {
 			Str("Url", url).
 			Bytes("Body", resp.Body()).
 			Msg("invalid status code received")
-		return errors.New("bad http response")
+		return ErrBadHTTPResponse
 	}
 
 	body := string(resp.Body())
