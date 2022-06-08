@@ -1,7 +1,10 @@
 name: Test
 on:
   push:
-  pull_request_target:
+    branches: [ main ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ main ]
 jobs:
   ginkgo:
     name: ginkgo
