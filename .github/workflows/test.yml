@@ -4,11 +4,15 @@ on:
   pull_request:
 permissions:
   contents: read
-  pull-requests: read
+  pull-requests: write
 jobs:
   ginkgo:
     name: ginkgo
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
     steps:
       - uses: actions/setup-go@v3
         with:
@@ -20,3 +24,5 @@ jobs:
         if: always() # always run even if the previous step fails
         with:
           report_paths: 'test-report.xml'
+          github_token: ${{ github.token }}
+          check_name: 'Ginkgo Test Report (OS: ${{ matrix.os }})'
