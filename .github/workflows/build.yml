@@ -1,8 +1,11 @@
 name: "Build"
 
 on:
-  pull_request:
   push:
+    branches: [ main ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ main ]
 
 jobs:
   mage:
@@ -10,12 +13,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version-file: 'go.mod'
-      
+
       - name: Run Mage
         uses: magefile/mage-action@v2
         with:
