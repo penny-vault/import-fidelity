@@ -28,7 +28,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            import-tickers
+            import-fidelity
   docker:
     runs-on: ubuntu-latest
     steps:
@@ -54,4 +54,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: pennyvault/import-tickers:latest
+          tags: pennyvault/import-fidelity:latest
