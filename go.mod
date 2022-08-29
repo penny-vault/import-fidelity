@@ -13,7 +13,7 @@ require (
 	github.com/onsi/gomega v1.20.0
 	github.com/penny-vault/pvlib v0.1.0
 	github.com/playwright-community/playwright-go v0.2000.1
-	github.com/rs/zerolog v1.27.0
+	github.com/rs/zerolog v1.28.0
 	github.com/schollz/progressbar/v3 v3.9.0
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.12.0
