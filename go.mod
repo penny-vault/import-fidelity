@@ -15,7 +15,7 @@ require (
 	github.com/playwright-community/playwright-go v0.2000.1
 	github.com/rs/zerolog v1.28.0
 	github.com/schollz/progressbar/v3 v3.11.0
-	github.com/spf13/cobra v1.5.0
+	github.com/spf13/cobra v1.6.0
 	github.com/spf13/viper v1.13.0
 	github.com/tidwall/gjson v1.14.3
 	github.com/xitongsys/parquet-go v1.6.2
@@ -38,7 +38,7 @@ require (
 	github.com/google/go-cmp v0.5.8 // indirect
 	github.com/google/readahead v0.0.0-20161222183148-eaceba169032 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/klauspost/compress v1.15.6 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.12 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
