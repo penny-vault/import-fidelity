@@ -21,7 +21,7 @@ require (
 	github.com/xitongsys/parquet-go v1.6.2
 	github.com/xitongsys/parquet-go-source v0.0.0-20221025031416-9877e685ef65
 	go.uber.org/ratelimit v0.2.0
-	golang.org/x/term v0.1.0
+	golang.org/x/term v0.2.0
 	lukechampine.com/blake3 v1.1.7
 )
 
@@ -64,7 +64,7 @@ require (
 	github.com/ysmood/gson v0.7.2 // indirect
 	github.com/ysmood/leakless v0.8.0 // indirect
 	golang.org/x/net v0.1.0 // indirect
-	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
