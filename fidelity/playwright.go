@@ -62,8 +62,8 @@ func Login(page playwright.Page) error {
 			log.Error().Err(err).Msg("could not click login button")
 			return err
 		}
-		log.Info().Msg("waiting for 2 seconds")
-		page.WaitForTimeout(2000)
+		log.Debug().Msg("waiting for 10 seconds")
+		page.WaitForTimeout(10000)
 	} else {
 		log.Info().Msg("session is active; no login necessary")
 	}

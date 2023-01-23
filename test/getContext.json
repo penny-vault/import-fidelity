@@ -1,0 +1,1210 @@
+{
+   "data": {
+      "getContext": {
+         "sysStatus": {
+            "balance": "n/a",
+            "backend": {
+               "account": "ok",
+               "feature": "n/a",
+               "__typename": "BackendStatus"
+            },
+            "account": {
+               "Brokerage": "ok",
+               "StockPlans": "ok",
+               "ExternalLinked": "n/a",
+               "ExternalManual": "n/a",
+               "WorkplaceContributions": "n/a",
+               "WorkplaceBenefits": "n/a",
+               "Annuity": "n/a",
+               "FidelityCreditCards": "ok",
+               "Charitable": "n/a",
+               "BrokerageLending": "n/a",
+               "InternalDigital": "n/a",
+               "ExternalDigital": "n/a",
+               "__typename": "AccountDataStatus"
+            },
+            "__typename": "SysStatus"
+         },
+         "person": {
+            "id": "",
+            "sysMsgs": [
+               {
+                  "message": "No data found",
+                  "source": "FidelityCreditCards",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               },
+               {
+                  "message": "No data found",
+                  "source": "BrokerageLending",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               },
+               {
+                  "message": "No data found",
+                  "source": "ExternalManual",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               },
+               {
+                  "message": "No data found",
+                  "source": "ExternalLinked",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               },
+               {
+                  "message": "No data found",
+                  "source": "ExternalDigital",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               },
+               {
+                  "message": "No data found",
+                  "source": "InternalDigital",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               },
+               {
+                  "message": "No data found",
+                  "source": "StockPlans",
+                  "code": "2000",
+                  "type": "warning",
+                  "__typename": "SystemMsg"
+               }
+            ],
+            "relationships": [
+               {
+                  "type": "Retail",
+                  "__typename": "Relationship"
+               }
+            ],
+            "balances": {
+               "balanceDetail": {
+                  "gainLossBalanceDetail": {
+                     "totalMarketVal": 50000.00,
+                     "todaysGainLoss": 10000.00,
+                     "todaysGainLossPct": 20.00,
+                     "__typename": "BalanceDetailCommon"
+                  },
+                  "__typename": "BalanceDetail"
+               },
+               "__typename": "PortfolioDetail"
+            },
+            "assets": [
+               {
+                  "acctNum": "Z00000001",
+                  "acctType": "Brokerage",
+                  "acctSubType": "Brokerage",
+                  "acctSubTypeDesc": "Brokerage General Investing Person",
+                  "acctCreationDate": 1550000000,
+                  "parentBrokAcctNum": null,
+                  "linkedAcctDetails": null,
+                  "brokerageLendingAcctDetail": null,
+                  "acctStateDetail": {
+                     "statusCode": "ACTIV",
+                     "__typename": "AcctStateDetail"
+                  },
+                  "preferenceDetail": {
+                     "name": "Account 1",
+                     "isHidden": false,
+                     "isDefaultAcct": false,
+                     "acctGroupId": "IA",
+                     "__typename": "PreferenceDetail"
+                  },
+                  "gainLossBalanceDetail": {
+                     "totalMarketVal": 25000.00,
+                     "todaysGainLoss": -20.00,
+                     "todaysGainLossPct": -0.01,
+                     "asOfDateTime": 1674420474,
+                     "hasUnpricedPositions": true,
+                     "__typename": "BalanceDetailCommon"
+                  },
+                  "acctRelAttrDetail": {
+                     "relCategoryCode": "PRINC",
+                     "relRoleTypeCode": "INDIVIDUAL",
+                     "__typename": "AcctRelAttrDetail"
+                  },
+                  "annuityProductDetail": null,
+                  "workplacePlanDetail": null,
+                  "acctTypesIndDetail": {
+                     "isRetirement": false,
+                     "isYouthAcct": false,
+                     "__typename": "AcctTypesIndDetail"
+                  },
+                  "acctAttrDetail": {
+                     "regTypeDesc": "Individual - TOD",
+                     "costBasisCode": null,
+                     "addlBrokAcctCode": null,
+                     "__typename": "AcctAttrDetail"
+                  },
+                  "acctIndDetail": {
+                     "isAdvisorAcct": false,
+                     "isAuthorizedAcct": false,
+                     "isMultiCurrencyAllowed": false,
+                     "isFFOSAcct": false,
+                     "isPrimaryCustomer": true,
+                     "__typename": "AcctIndDetail"
+                  },
+                  "acctTrustIndDetail": {
+                     "isTrustAcct": false,
+                     "__typename": "AcctTrustIndDetail"
+                  },
+                  "acctLegalAttrDetail": {
+                     "accountTypeCode": "INVESTPERSON",
+                     "legalConstructCode": "INDIVIDUAL",
+                     "legalConstructModifierCode": "TOD",
+                     "offeringCode": null,
+                     "serviceSegmentCode": null,
+                     "lineOfBusinessCode": "PI",
+                     "__typename": "AcctLegalAttrDetail"
+                  },
+                  "acctTradeAttrDetail": {
+                     "optionAgrmntCode": null,
+                     "optionLevelCode": null,
+                     "borrowFullyPaidCode": "P",
+                     "portfolioMarginCode": null,
+                     "isTradable": true,
+                     "mrgnAgrmntCode": null,
+                     "isSpecificShrTradingEligible": true,
+                     "isSpreadsAllowed": null,
+                     "limitedMrgnCode": null,
+                     "__typename": "AcctTradeAttrDetail"
+                  },
+                  "annuityPolicyDetail": null,
+                  "externalAcctDetail": null,
+                  "managedAcctDetail": null,
+                  "__typename": "AcctDetail"
+               },
+               {
+                  "acctNum": "Z00000002",
+                  "acctType": "Brokerage",
+                  "acctSubType": "Brokerage",
+                  "acctSubTypeDesc": "Brokerage General Investing Person",
+                  "acctCreationDate": 1643864400,
+                  "parentBrokAcctNum": null,
+                  "linkedAcctDetails": null,
+                  "brokerageLendingAcctDetail": null,
+                  "acctStateDetail": {
+                     "statusCode": "ACTIV",
+                     "__typename": "AcctStateDetail"
+                  },
+                  "preferenceDetail": {
+                     "name": "Individual Margin",
+                     "isHidden": false,
+                     "isDefaultAcct": true,
+                     "acctGroupId": "IA",
+                     "__typename": "PreferenceDetail"
+                  },
+                  "gainLossBalanceDetail": {
+                     "totalMarketVal": 442209.53,
+                     "todaysGainLoss": 7499.05,
+                     "todaysGainLossPct": 1.73,
+                     "asOfDateTime": 1674420474,
+                     "hasUnpricedPositions": true,
+                     "__typename": "BalanceDetailCommon"
+                  },
+                  "acctRelAttrDetail": {
+                     "relCategoryCode": "PRINC",
+                     "relRoleTypeCode": "INDIVIDUAL",
+                     "__typename": "AcctRelAttrDetail"
+                  },
+                  "annuityProductDetail": null,
+                  "workplacePlanDetail": null,
+                  "acctTypesIndDetail": {
+                     "isRetirement": false,
+                     "isYouthAcct": false,
+                     "__typename": "AcctTypesIndDetail"
+                  },
+                  "acctAttrDetail": {
+                     "regTypeDesc": "Individual - TOD",
+                     "costBasisCode": null,
+                     "addlBrokAcctCode": null,
+                     "__typename": "AcctAttrDetail"
+                  },
+                  "acctIndDetail": {
+                     "isAdvisorAcct": false,
+                     "isAuthorizedAcct": false,
+                     "isMultiCurrencyAllowed": false,
+                     "isFFOSAcct": false,
+                     "isPrimaryCustomer": true,
+                     "__typename": "AcctIndDetail"
+                  },
+                  "acctTrustIndDetail": {
+                     "isTrustAcct": false,
+                     "__typename": "AcctTrustIndDetail"
+                  },
+                  "acctLegalAttrDetail": {
+                     "accountTypeCode": "INVESTPERSON",
+                     "legalConstructCode": "INDIVIDUAL",
+                     "legalConstructModifierCode": "TOD",
+                     "offeringCode": null,
+                     "serviceSegmentCode": null,
+                     "lineOfBusinessCode": "PI",
+                     "__typename": "AcctLegalAttrDetail"
+                  },
+                  "acctTradeAttrDetail": {
+                     "optionAgrmntCode": "CWRPU",
+                     "optionLevelCode": null,
+                     "borrowFullyPaidCode": "P",
+                     "portfolioMarginCode": null,
+                     "isTradable": true,
+                     "mrgnAgrmntCode": "ONFIL",
+                     "isSpecificShrTradingEligible": true,
+                     "isSpreadsAllowed": null,
+                     "limitedMrgnCode": null,
+                     "__typename": "AcctTradeAttrDetail"
+                  },
+                  "annuityPolicyDetail": null,
+                  "externalAcctDetail": null,
+                  "managedAcctDetail": null,
+                  "__typename": "AcctDetail"
+               },
+               {
+                  "acctNum": "200000001",
+                  "acctType": "Brokerage",
+                  "acctSubType": "Brokerage",
+                  "acctSubTypeDesc": "Brokerage Retirement Individual",
+                  "acctCreationDate": 1653627600,
+                  "parentBrokAcctNum": null,
+                  "linkedAcctDetails": null,
+                  "brokerageLendingAcctDetail": null,
+                  "acctStateDetail": {
+                     "statusCode": "ACTIV",
+                     "__typename": "AcctStateDetail"
+                  },
+                  "preferenceDetail": {
+                     "name": "Roth IRA",
+                     "isHidden": false,
+                     "isDefaultAcct": false,
+                     "acctGroupId": "RA",
+                     "__typename": "PreferenceDetail"
+                  },
+                  "gainLossBalanceDetail": {
+                     "totalMarketVal": 100000.00,
+                     "todaysGainLoss": 1000.00,
+                     "todaysGainLossPct": 1.00,
+                     "asOfDateTime": 1674420474,
+                     "hasUnpricedPositions": true,
+                     "__typename": "BalanceDetailCommon"
+                  },
+                  "acctRelAttrDetail": {
+                     "relCategoryCode": "PRINC",
+                     "relRoleTypeCode": "OWNRBENE",
+                     "__typename": "AcctRelAttrDetail"
+                  },
+                  "annuityProductDetail": null,
+                  "workplacePlanDetail": null,
+                  "acctTypesIndDetail": {
+                     "isRetirement": true,
+                     "isYouthAcct": false,
+                     "__typename": "AcctTypesIndDetail"
+                  },
+                  "acctAttrDetail": {
+                     "regTypeDesc": "ROTH IRA",
+                     "costBasisCode": null,
+                     "addlBrokAcctCode": null,
+                     "__typename": "AcctAttrDetail"
+                  },
+                  "acctIndDetail": {
+                     "isAdvisorAcct": false,
+                     "isAuthorizedAcct": false,
+                     "isMultiCurrencyAllowed": false,
+                     "isFFOSAcct": false,
+                     "isPrimaryCustomer": true,
+                     "__typename": "AcctIndDetail"
+                  },
+                  "acctTrustIndDetail": {
+                     "isTrustAcct": false,
+                     "__typename": "AcctTrustIndDetail"
+                  },
+                  "acctLegalAttrDetail": {
+                     "accountTypeCode": "RETIREPERSON",
+                     "legalConstructCode": "ROTHIRA",
+                     "legalConstructModifierCode": null,
+                     "offeringCode": null,
+                     "serviceSegmentCode": null,
+                     "lineOfBusinessCode": "PI",
+                     "__typename": "AcctLegalAttrDetail"
+                  },
+                  "acctTradeAttrDetail": {
+                     "optionAgrmntCode": null,
+                     "optionLevelCode": null,
+                     "borrowFullyPaidCode": "P",
+                     "portfolioMarginCode": null,
+                     "isTradable": true,
+                     "mrgnAgrmntCode": null,
+                     "isSpecificShrTradingEligible": false,
+                     "isSpreadsAllowed": null,
+                     "limitedMrgnCode": null,
+                     "__typename": "AcctTradeAttrDetail"
+                  },
+                  "annuityPolicyDetail": null,
+                  "externalAcctDetail": null,
+                  "managedAcctDetail": null,
+                  "__typename": "AcctDetail"
+               },
+               {
+                  "acctNum": "200000002",
+                  "acctType": "Brokerage",
+                  "acctSubType": "Brokerage",
+                  "acctSubTypeDesc": "Brokerage Retirement Individual",
+                  "acctCreationDate": 1653627600,
+                  "parentBrokAcctNum": null,
+                  "linkedAcctDetails": null,
+                  "brokerageLendingAcctDetail": null,
+                  "acctStateDetail": {
+                     "statusCode": "ACTIV",
+                     "__typename": "AcctStateDetail"
+                  },
+                  "preferenceDetail": {
+                     "name": "Traditional IRA",
+                     "isHidden": false,
+                     "isDefaultAcct": false,
+                     "acctGroupId": "RA",
+                     "__typename": "PreferenceDetail"
+                  },
+                  "gainLossBalanceDetail": {
+                     "totalMarketVal": 0,
+                     "todaysGainLoss": 0,
+                     "todaysGainLossPct": 0,
+                     "asOfDateTime": 1674420474,
+                     "hasUnpricedPositions": false,
+                     "__typename": "BalanceDetailCommon"
+                  },
+                  "acctRelAttrDetail": {
+                     "relCategoryCode": "PRINC",
+                     "relRoleTypeCode": "OWNRBENE",
+                     "__typename": "AcctRelAttrDetail"
+                  },
+                  "annuityProductDetail": null,
+                  "workplacePlanDetail": null,
+                  "acctTypesIndDetail": {
+                     "isRetirement": true,
+                     "isYouthAcct": false,
+                     "__typename": "AcctTypesIndDetail"
+                  },
+                  "acctAttrDetail": {
+                     "regTypeDesc": "Traditional IRA",
+                     "costBasisCode": null,
+                     "addlBrokAcctCode": null,
+                     "__typename": "AcctAttrDetail"
+                  },
+                  "acctIndDetail": {
+                     "isAdvisorAcct": false,
+                     "isAuthorizedAcct": false,
+                     "isMultiCurrencyAllowed": false,
+                     "isFFOSAcct": false,
+                     "isPrimaryCustomer": true,
+                     "__typename": "AcctIndDetail"
+                  },
+                  "acctTrustIndDetail": {
+                     "isTrustAcct": false,
+                     "__typename": "AcctTrustIndDetail"
+                  },
+                  "acctLegalAttrDetail": {
+                     "accountTypeCode": "RETIREPERSON",
+                     "legalConstructCode": "REGULARIRA",
+                     "legalConstructModifierCode": null,
+                     "offeringCode": null,
+                     "serviceSegmentCode": null,
+                     "lineOfBusinessCode": "PI",
+                     "__typename": "AcctLegalAttrDetail"
+                  },
+                  "acctTradeAttrDetail": {
+                     "optionAgrmntCode": null,
+                     "optionLevelCode": null,
+                     "borrowFullyPaidCode": "P",
+                     "portfolioMarginCode": null,
+                     "isTradable": true,
+                     "mrgnAgrmntCode": null,
+                     "isSpecificShrTradingEligible": false,
+                     "isSpreadsAllowed": null,
+                     "limitedMrgnCode": null,
+                     "__typename": "AcctTradeAttrDetail"
+                  },
+                  "annuityPolicyDetail": null,
+                  "externalAcctDetail": null,
+                  "managedAcctDetail": null,
+                  "__typename": "AcctDetail"
+               },
+               {
+                  "acctNum": "Z00000003",
+                  "acctType": "Brokerage",
+                  "acctSubType": "Cash Management",
+                  "acctSubTypeDesc": "Brokerage Cash Management",
+                  "acctCreationDate": 1643864400,
+                  "parentBrokAcctNum": null,
+                  "linkedAcctDetails": null,
+                  "brokerageLendingAcctDetail": null,
+                  "acctStateDetail": {
+                     "statusCode": "ACTIV",
+                     "__typename": "AcctStateDetail"
+                  },
+                  "preferenceDetail": {
+                     "name": "Cash Management",
+                     "isHidden": false,
+                     "isDefaultAcct": false,
+                     "acctGroupId": "SC",
+                     "__typename": "PreferenceDetail"
+                  },
+                  "gainLossBalanceDetail": {
+                     "totalMarketVal": 0,
+                     "todaysGainLoss": 0,
+                     "todaysGainLossPct": 0,
+                     "asOfDateTime": 1674420474,
+                     "hasUnpricedPositions": false,
+                     "__typename": "BalanceDetailCommon"
+                  },
+                  "acctRelAttrDetail": {
+                     "relCategoryCode": "PRINC",
+                     "relRoleTypeCode": "INDIVIDUAL",
+                     "__typename": "AcctRelAttrDetail"
+                  },
+                  "annuityProductDetail": null,
+                  "workplacePlanDetail": null,
+                  "acctTypesIndDetail": {
+                     "isRetirement": false,
+                     "isYouthAcct": false,
+                     "__typename": "AcctTypesIndDetail"
+                  },
+                  "acctAttrDetail": {
+                     "regTypeDesc": "Individual - TOD",
+                     "costBasisCode": null,
+                     "addlBrokAcctCode": null,
+                     "__typename": "AcctAttrDetail"
+                  },
+                  "acctIndDetail": {
+                     "isAdvisorAcct": false,
+                     "isAuthorizedAcct": false,
+                     "isMultiCurrencyAllowed": false,
+                     "isFFOSAcct": false,
+                     "isPrimaryCustomer": true,
+                     "__typename": "AcctIndDetail"
+                  },
+                  "acctTrustIndDetail": {
+                     "isTrustAcct": false,
+                     "__typename": "AcctTrustIndDetail"
+                  },
+                  "acctLegalAttrDetail": {
+                     "accountTypeCode": "INVESTPERSON",
+                     "legalConstructCode": "INDIVIDUAL",
+                     "legalConstructModifierCode": "TOD",
+                     "offeringCode": "CASHMGMTACCT",
+                     "serviceSegmentCode": null,
+                     "lineOfBusinessCode": "PI",
+                     "__typename": "AcctLegalAttrDetail"
+                  },
+                  "acctTradeAttrDetail": {
+                     "optionAgrmntCode": null,
+                     "optionLevelCode": null,
+                     "borrowFullyPaidCode": "N",
+                     "portfolioMarginCode": null,
+                     "isTradable": true,
+                     "mrgnAgrmntCode": null,
+                     "isSpecificShrTradingEligible": true,
+                     "isSpreadsAllowed": null,
+                     "limitedMrgnCode": null,
+                     "__typename": "AcctTradeAttrDetail"
+                  },
+                  "annuityPolicyDetail": null,
+                  "externalAcctDetail": null,
+                  "managedAcctDetail": null,
+                  "__typename": "AcctDetail"
+               }
+            ],
+            "groups": [
+               {
+                  "id": "IA",
+                  "name": "Investment Accounts",
+                  "items": [
+                     {
+                        "acctNum": "Z00000001",
+                        "acctType": "Brokerage",
+                        "acctSubType": "Brokerage",
+                        "acctSubTypeDesc": "Brokerage General Investing Person",
+                        "acctCreationDate": 1652418000,
+                        "parentBrokAcctNum": null,
+                        "linkedAcctDetails": null,
+                        "acctStateDetail": {
+                           "statusCode": "ACTIV",
+                           "__typename": "AcctStateDetail"
+                        },
+                        "acctAttrDetail": {
+                           "addlBrokAcctCode": null,
+                           "regTypeDesc": "Individual - TOD",
+                           "__typename": "AcctAttrDetail"
+                        },
+                        "acctIndDetail": {
+                           "isAdvisorAcct": false,
+                           "isAuthorizedAcct": false,
+                           "isMultiCurrencyAllowed": false,
+                           "isFFOSAcct": false,
+                           "isPrimaryCustomer": true,
+                           "__typename": "AcctIndDetail"
+                        },
+                        "acctTrustIndDetail": {
+                           "isTrustAcct": false,
+                           "__typename": "AcctTrustIndDetail"
+                        },
+                        "acctTypesIndDetail": {
+                           "isRetirement": false,
+                           "isYouthAcct": false,
+                           "hasSPSPlans": false,
+                           "__typename": "AcctTypesIndDetail"
+                        },
+                        "acctRelAttrDetail": {
+                           "relCategoryCode": "PRINC",
+                           "relRoleTypeCode": "INDIVIDUAL",
+                           "__typename": "AcctRelAttrDetail"
+                        },
+                        "preferenceDetail": {
+                           "name": "Account 1",
+                           "isHidden": false,
+                           "isDefaultAcct": false,
+                           "acctGroupId": "IA",
+                           "__typename": "PreferenceDetail"
+                        },
+                        "acctLegalAttrDetail": {
+                           "legalConstructCode": "INDIVIDUAL",
+                           "legalConstructModifierCode": "TOD",
+                           "serviceSegmentCode": null,
+                           "accountTypeCode": "INVESTPERSON",
+                           "offeringCode": null,
+                           "lineOfBusinessCode": "PI",
+                           "__typename": "AcctLegalAttrDetail"
+                        },
+                        "workplacePlanDetail": null,
+                        "gainLossBalanceDetail": {
+                           "totalMarketVal": 25000.00,
+                           "todaysGainLoss": -20.00,
+                           "todaysGainLossPct": -0.01,
+                           "asOfDateTime": 1674420474,
+                           "hasUnpricedPositions": true,
+                           "__typename": "BalanceDetailCommon"
+                        },
+                        "annuityProductDetail": null,
+                        "annuityPolicyDetail": null,
+                        "externalAcctDetail": null,
+                        "managedAcctDetail": null,
+                        "digiAcctAttrDetail": null,
+                        "__typename": "AcctDetail"
+                     },
+                     {
+                        "acctNum": "Z00000002",
+                        "acctType": "Brokerage",
+                        "acctSubType": "Brokerage",
+                        "acctSubTypeDesc": "Brokerage General Investing Person",
+                        "acctCreationDate": 1643864400,
+                        "parentBrokAcctNum": null,
+                        "linkedAcctDetails": null,
+                        "acctStateDetail": {
+                           "statusCode": "ACTIV",
+                           "__typename": "AcctStateDetail"
+                        },
+                        "acctAttrDetail": {
+                           "addlBrokAcctCode": null,
+                           "regTypeDesc": "Individual - TOD",
+                           "__typename": "AcctAttrDetail"
+                        },
+                        "acctIndDetail": {
+                           "isAdvisorAcct": false,
+                           "isAuthorizedAcct": false,
+                           "isMultiCurrencyAllowed": false,
+                           "isFFOSAcct": false,
+                           "isPrimaryCustomer": true,
+                           "__typename": "AcctIndDetail"
+                        },
+                        "acctTrustIndDetail": {
+                           "isTrustAcct": false,
+                           "__typename": "AcctTrustIndDetail"
+                        },
+                        "acctTypesIndDetail": {
+                           "isRetirement": false,
+                           "isYouthAcct": false,
+                           "hasSPSPlans": false,
+                           "__typename": "AcctTypesIndDetail"
+                        },
+                        "acctRelAttrDetail": {
+                           "relCategoryCode": "PRINC",
+                           "relRoleTypeCode": "INDIVIDUAL",
+                           "__typename": "AcctRelAttrDetail"
+                        },
+                        "preferenceDetail": {
+                           "name": "Individual Margin",
+                           "isHidden": false,
+                           "isDefaultAcct": true,
+                           "acctGroupId": "IA",
+                           "__typename": "PreferenceDetail"
+                        },
+                        "acctLegalAttrDetail": {
+                           "legalConstructCode": "INDIVIDUAL",
+                           "legalConstructModifierCode": "TOD",
+                           "serviceSegmentCode": null,
+                           "accountTypeCode": "INVESTPERSON",
+                           "offeringCode": null,
+                           "lineOfBusinessCode": "PI",
+                           "__typename": "AcctLegalAttrDetail"
+                        },
+                        "workplacePlanDetail": null,
+                        "gainLossBalanceDetail": {
+                           "totalMarketVal": 100000.00,
+                           "todaysGainLoss": 5000.00,
+                           "todaysGainLossPct": 5.00,
+                           "asOfDateTime": 1674420474,
+                           "hasUnpricedPositions": true,
+                           "__typename": "BalanceDetailCommon"
+                        },
+                        "annuityProductDetail": null,
+                        "annuityPolicyDetail": null,
+                        "externalAcctDetail": null,
+                        "managedAcctDetail": null,
+                        "digiAcctAttrDetail": null,
+                        "__typename": "AcctDetail"
+                     }
+                  ],
+                  "balanceDetail": {
+                     "gainLossBalanceDetail": {
+                        "totalMarketVal": 100000.00,
+                        "todaysGainLoss": 5000.00,
+                        "todaysGainLossPct": 5.00,
+                        "__typename": "BalanceDetailCommon"
+                     },
+                     "__typename": "BalanceDetail"
+                  },
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "ID",
+                  "name": "Cryptocurrency",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "RA",
+                  "name": "Retirement Accounts",
+                  "items": [
+                     {
+                        "acctNum": "200000001",
+                        "acctType": "Brokerage",
+                        "acctSubType": "Brokerage",
+                        "acctSubTypeDesc": "Brokerage Retirement Individual",
+                        "acctCreationDate": 1653627600,
+                        "parentBrokAcctNum": null,
+                        "linkedAcctDetails": null,
+                        "acctStateDetail": {
+                           "statusCode": "ACTIV",
+                           "__typename": "AcctStateDetail"
+                        },
+                        "acctAttrDetail": {
+                           "addlBrokAcctCode": null,
+                           "regTypeDesc": "ROTH IRA",
+                           "__typename": "AcctAttrDetail"
+                        },
+                        "acctIndDetail": {
+                           "isAdvisorAcct": false,
+                           "isAuthorizedAcct": false,
+                           "isMultiCurrencyAllowed": false,
+                           "isFFOSAcct": false,
+                           "isPrimaryCustomer": true,
+                           "__typename": "AcctIndDetail"
+                        },
+                        "acctTrustIndDetail": {
+                           "isTrustAcct": false,
+                           "__typename": "AcctTrustIndDetail"
+                        },
+                        "acctTypesIndDetail": {
+                           "isRetirement": true,
+                           "isYouthAcct": false,
+                           "hasSPSPlans": false,
+                           "__typename": "AcctTypesIndDetail"
+                        },
+                        "acctRelAttrDetail": {
+                           "relCategoryCode": "PRINC",
+                           "relRoleTypeCode": "OWNRBENE",
+                           "__typename": "AcctRelAttrDetail"
+                        },
+                        "preferenceDetail": {
+                           "name": "Roth IRA",
+                           "isHidden": false,
+                           "isDefaultAcct": false,
+                           "acctGroupId": "RA",
+                           "__typename": "PreferenceDetail"
+                        },
+                        "acctLegalAttrDetail": {
+                           "legalConstructCode": "ROTHIRA",
+                           "legalConstructModifierCode": null,
+                           "serviceSegmentCode": null,
+                           "accountTypeCode": "RETIREPERSON",
+                           "offeringCode": null,
+                           "lineOfBusinessCode": "PI",
+                           "__typename": "AcctLegalAttrDetail"
+                        },
+                        "workplacePlanDetail": null,
+                        "gainLossBalanceDetail": {
+                           "totalMarketVal": 100000.00,
+                           "todaysGainLoss": 1000.00,
+                           "todaysGainLossPct": 1.00,
+                           "asOfDateTime": 1674420474,
+                           "hasUnpricedPositions": true,
+                           "__typename": "BalanceDetailCommon"
+                        },
+                        "annuityProductDetail": null,
+                        "annuityPolicyDetail": null,
+                        "externalAcctDetail": null,
+                        "managedAcctDetail": null,
+                        "digiAcctAttrDetail": null,
+                        "__typename": "AcctDetail"
+                     },
+                     {
+                        "acctNum": "200000002",
+                        "acctType": "Brokerage",
+                        "acctSubType": "Brokerage",
+                        "acctSubTypeDesc": "Brokerage Retirement Individual",
+                        "acctCreationDate": 1653627600,
+                        "parentBrokAcctNum": null,
+                        "linkedAcctDetails": null,
+                        "acctStateDetail": {
+                           "statusCode": "ACTIV",
+                           "__typename": "AcctStateDetail"
+                        },
+                        "acctAttrDetail": {
+                           "addlBrokAcctCode": null,
+                           "regTypeDesc": "Traditional IRA",
+                           "__typename": "AcctAttrDetail"
+                        },
+                        "acctIndDetail": {
+                           "isAdvisorAcct": false,
+                           "isAuthorizedAcct": false,
+                           "isMultiCurrencyAllowed": false,
+                           "isFFOSAcct": false,
+                           "isPrimaryCustomer": true,
+                           "__typename": "AcctIndDetail"
+                        },
+                        "acctTrustIndDetail": {
+                           "isTrustAcct": false,
+                           "__typename": "AcctTrustIndDetail"
+                        },
+                        "acctTypesIndDetail": {
+                           "isRetirement": true,
+                           "isYouthAcct": false,
+                           "hasSPSPlans": false,
+                           "__typename": "AcctTypesIndDetail"
+                        },
+                        "acctRelAttrDetail": {
+                           "relCategoryCode": "PRINC",
+                           "relRoleTypeCode": "OWNRBENE",
+                           "__typename": "AcctRelAttrDetail"
+                        },
+                        "preferenceDetail": {
+                           "name": "Traditional IRA",
+                           "isHidden": false,
+                           "isDefaultAcct": false,
+                           "acctGroupId": "RA",
+                           "__typename": "PreferenceDetail"
+                        },
+                        "acctLegalAttrDetail": {
+                           "legalConstructCode": "REGULARIRA",
+                           "legalConstructModifierCode": null,
+                           "serviceSegmentCode": null,
+                           "accountTypeCode": "RETIREPERSON",
+                           "offeringCode": null,
+                           "lineOfBusinessCode": "PI",
+                           "__typename": "AcctLegalAttrDetail"
+                        },
+                        "workplacePlanDetail": null,
+                        "gainLossBalanceDetail": {
+                           "totalMarketVal": 0,
+                           "todaysGainLoss": 0,
+                           "todaysGainLossPct": 0,
+                           "asOfDateTime": 1674420474,
+                           "hasUnpricedPositions": false,
+                           "__typename": "BalanceDetailCommon"
+                        },
+                        "annuityProductDetail": null,
+                        "annuityPolicyDetail": null,
+                        "externalAcctDetail": null,
+                        "managedAcctDetail": null,
+                        "digiAcctAttrDetail": null,
+                        "__typename": "AcctDetail"
+                     }
+                  ],
+                  "balanceDetail": {
+                     "gainLossBalanceDetail": {
+                        "totalMarketVal": 100000.00,
+                        "todaysGainLoss": 1000.00,
+                        "todaysGainLossPct": 1.00,
+                        "__typename": "BalanceDetailCommon"
+                     },
+                     "__typename": "BalanceDetail"
+                  },
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "PM",
+                  "name": "Professionally Managed Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "SC",
+                  "name": "Spend & Save Accounts",
+                  "items": [
+                     {
+                        "acctNum": "Z00000003",
+                        "acctType": "Brokerage",
+                        "acctSubType": "Cash Management",
+                        "acctSubTypeDesc": "Brokerage Cash Management",
+                        "acctCreationDate": 1643864400,
+                        "parentBrokAcctNum": null,
+                        "linkedAcctDetails": null,
+                        "acctStateDetail": {
+                           "statusCode": "ACTIV",
+                           "__typename": "AcctStateDetail"
+                        },
+                        "acctAttrDetail": {
+                           "addlBrokAcctCode": null,
+                           "regTypeDesc": "Individual - TOD",
+                           "__typename": "AcctAttrDetail"
+                        },
+                        "acctIndDetail": {
+                           "isAdvisorAcct": false,
+                           "isAuthorizedAcct": false,
+                           "isMultiCurrencyAllowed": false,
+                           "isFFOSAcct": false,
+                           "isPrimaryCustomer": true,
+                           "__typename": "AcctIndDetail"
+                        },
+                        "acctTrustIndDetail": {
+                           "isTrustAcct": false,
+                           "__typename": "AcctTrustIndDetail"
+                        },
+                        "acctTypesIndDetail": {
+                           "isRetirement": false,
+                           "isYouthAcct": false,
+                           "hasSPSPlans": false,
+                           "__typename": "AcctTypesIndDetail"
+                        },
+                        "acctRelAttrDetail": {
+                           "relCategoryCode": "PRINC",
+                           "relRoleTypeCode": "INDIVIDUAL",
+                           "__typename": "AcctRelAttrDetail"
+                        },
+                        "preferenceDetail": {
+                           "name": "Cash Management",
+                           "isHidden": false,
+                           "isDefaultAcct": false,
+                           "acctGroupId": "SC",
+                           "__typename": "PreferenceDetail"
+                        },
+                        "acctLegalAttrDetail": {
+                           "legalConstructCode": "INDIVIDUAL",
+                           "legalConstructModifierCode": "TOD",
+                           "serviceSegmentCode": null,
+                           "accountTypeCode": "INVESTPERSON",
+                           "offeringCode": "CASHMGMTACCT",
+                           "lineOfBusinessCode": "PI",
+                           "__typename": "AcctLegalAttrDetail"
+                        },
+                        "workplacePlanDetail": null,
+                        "gainLossBalanceDetail": {
+                           "totalMarketVal": 0,
+                           "todaysGainLoss": 0,
+                           "todaysGainLossPct": 0,
+                           "asOfDateTime": 1674420474,
+                           "hasUnpricedPositions": false,
+                           "__typename": "BalanceDetailCommon"
+                        },
+                        "annuityProductDetail": null,
+                        "annuityPolicyDetail": null,
+                        "externalAcctDetail": null,
+                        "managedAcctDetail": null,
+                        "digiAcctAttrDetail": null,
+                        "__typename": "AcctDetail"
+                     }
+                  ],
+                  "balanceDetail": {
+                     "gainLossBalanceDetail": {
+                        "totalMarketVal": 0,
+                        "todaysGainLoss": 0,
+                        "todaysGainLossPct": 0,
+                        "__typename": "BalanceDetailCommon"
+                     },
+                     "__typename": "BalanceDetail"
+                  },
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "IP",
+                  "name": "Income and Payout Annuity Contracts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "EA",
+                  "name": "Education Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "SP",
+                  "name": "Stock Plans",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "HS",
+                  "name": "Health Savings Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "PA",
+                  "name": "Protection Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "CU",
+                  "name": "Custom Groups",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "AA",
+                  "name": "Authorized Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "OA",
+                  "name": "Other Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "PN",
+                  "name": "Pensions",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "CG",
+                  "name": "Charitable Giving",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "CC",
+                  "name": "Credit Cards",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "FV",
+                  "name": "Non-Fidelity Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "LO",
+                  "name": "Non-Fidelity Loans",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "RE",
+                  "name": "Non-Fidelity Real Estate",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "NQ",
+                  "name": "Nonqualified Accounts",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "ED",
+                  "name": "Non-Fidelity Cryptocurrency",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               },
+               {
+                  "id": "LS",
+                  "name": "Lending Solutions",
+                  "items": [],
+                  "balanceDetail": null,
+                  "__typename": "Portfolio"
+               }
+            ],
+            "customerAttrDetail": {
+               "externalCustomerID": null,
+               "isShowWorkplaceSavingAccts": true,
+               "isShowExternalAccts": true,
+               "pledgedAcctNums": null,
+               "__typename": "CustomerAttrDetail"
+            },
+            "groupDetails": [
+               {
+                  "groupId": "IA",
+                  "groupName": "Investment Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "ID",
+                  "groupName": "Cryptocurrency",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "RA",
+                  "groupName": "Retirement Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "PM",
+                  "groupName": "Professionally Managed Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "SC",
+                  "groupName": "Spend & Save Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "IP",
+                  "groupName": "Income and Payout Annuity Contracts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "EA",
+                  "groupName": "Education Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "SP",
+                  "groupName": "Stock Plans",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "HS",
+                  "groupName": "Health Savings Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "PA",
+                  "groupName": "Protection Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "CU",
+                  "groupName": "Custom Groups",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "AA",
+                  "groupName": "Authorized Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "OA",
+                  "groupName": "Other Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "PN",
+                  "groupName": "Pensions",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "CG",
+                  "groupName": "Charitable Giving",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "CC",
+                  "groupName": "Credit Cards",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "FV",
+                  "groupName": "Non-Fidelity Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "LO",
+                  "groupName": "Non-Fidelity Loans",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "RE",
+                  "groupName": "Non-Fidelity Real Estate",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "NQ",
+                  "groupName": "Nonqualified Accounts",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "ED",
+                  "groupName": "Non-Fidelity Cryptocurrency",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               },
+               {
+                  "groupId": "LS",
+                  "groupName": "Lending Solutions",
+                  "typeCode": "Default",
+                  "__typename": "GroupDetail"
+               }
+            ],
+            "__typename": "Person"
+         },
+         "__typename": "PersonContext"
+      }
+   }
+}

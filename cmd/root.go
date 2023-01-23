@@ -63,6 +63,11 @@ func init() {
 		log.Error().Err(err).Msg("bind log.json")
 	}
 
+	rootCmd.PersistentFlags().Bool("log.debug", false, "use debug log level")
+	if err := viper.BindPFlag("log.debug", rootCmd.PersistentFlags().Lookup("log.debug")); err != nil {
+		log.Error().Err(err).Msg("bind log.debug")
+	}
+
 	rootCmd.PersistentFlags().String("backblaze-application-id", "<not-set>", "backblaze application id")
 	if err := viper.BindPFlag("backblaze.application_id", rootCmd.PersistentFlags().Lookup("backblaze-application-id")); err != nil {
 		log.Error().Err(err).Msg("bind backblaze.application_id")
@@ -110,6 +115,10 @@ func init() {
 func initLog() {
 	if !viper.GetBool("log.json") {
 		log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
+	}
+	if viper.GetBool("log.debug") {
+		log.Level(zerolog.DebugLevel)
+		log.Info().Msg("set log level to debug")
 	}
 }
 

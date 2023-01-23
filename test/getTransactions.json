@@ -1,0 +1,4002 @@
+{
+   "data": {
+      "getTransactions": {
+         "backendStatus": {
+            "order": "ok",
+            "history": "ok",
+            "transfers": "n/a",
+            "billpay": "n/a",
+            "__typename": "BackendStatus"
+         },
+         "orders": [],
+         "historys": [
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": null,
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "23 Jan 2023",
+               "amount": "3,200.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/23/2023,PAA Z00000001, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,3200,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/23/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$3,200.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": null,
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "23 Jan 2023",
+               "amount": "1,000.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/23/2023,Individual Margin Z00000002, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,1000,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/23/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$1,000.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": "",
+               "orderNumber": "20011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "20 Jan 2023",
+               "amount": "5,250.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/20/2023,Individual Margin Z00000002, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,5250,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/20/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$5,250.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "19011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "ROTH CONVERSION VS (Cash)",
+               "date": "19 Jan 2023",
+               "amount": "6,500.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/19/2023,Roth IRA 200000001, ROTH CONVERSION VS (Cash), , No Description,Cash,,,,,,6500,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/19/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "ROTH CONVERSION VS (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$6,500.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000002",
+               "txnTypNum": null,
+               "orderNumber": "19011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "CONV TO ROTH IRA VS 238-637640-1 (Cash)",
+               "date": "19 Jan 2023",
+               "amount": "-6,500.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/19/2023,Traditional IRA 200000002, CONV TO ROTH IRA VS 238-637640-1 (Cash), , No Description,Cash,,,,,,-6500,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/19/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "CONV TO ROTH IRA VS 238-637640-1 (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$6,500.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "19012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash)",
+               "date": "19 Jan 2023",
+               "amount": "-7,501.10",
+               "txnTypeCode": "ST",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "BY",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "VOO",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/19/2023,Roth IRA 200000001, YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash), VOO, VANGUARD INDEX FUNDS S&P 500 ETF USD,Cash,21,357.2,,,,-7501.1,01/23/2023",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/19/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VOO",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD INDEX FUNDS S&P 500 ETF USD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+21.000",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "357.195",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$7,501.10",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Settlement Date",
+                     "value": "01/23/2023",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000002",
+               "txnTypNum": null,
+               "orderNumber": "18011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "CASH CONTRIBUTION CURRENT YEAR (Cash)",
+               "date": "18 Jan 2023",
+               "amount": "6,500.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/18/2023,Traditional IRA 200000002, CASH CONTRIBUTION CURRENT YEAR (Cash), , No Description,Cash,,,,,,6500,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/18/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "CASH CONTRIBUTION CURRENT YEAR (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$6,500.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "18011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "ROTH CONVERSION VS (Cash)",
+               "date": "18 Jan 2023",
+               "amount": "0.33",
+               "txnTypeCode": "CT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/18/2023,Roth IRA 200000001, ROTH CONVERSION VS (Cash), , No Description,Cash,,,,,,0.33,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/18/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "ROTH CONVERSION VS (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$0.33",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000002",
+               "txnTypNum": null,
+               "orderNumber": "18012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "CONV TO ROTH IRA VS 238-637640-1 (Cash)",
+               "date": "18 Jan 2023",
+               "amount": "-0.33",
+               "txnTypeCode": "CT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/18/2023,Traditional IRA 200000002, CONV TO ROTH IRA VS 238-637640-1 (Cash), , No Description,Cash,,,,,,-0.33,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/18/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "CONV TO ROTH IRA VS 238-637640-1 (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$0.33",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "18011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "TRANSFERRED TO VS CURRENT CONTRIBUTION (Cash)",
+               "date": "18 Jan 2023",
+               "amount": "-6,500.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X1",
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/18/2023,Individual Margin Z00000002, TRANSFERRED TO VS CURRENT CONTRIBUTION (Cash),  , No Description,Cash,,,,,,-6500,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/18/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "TRANSFERRED TO VS CURRENT CONTRIBUTION (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$6,500.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": "",
+               "orderNumber": "17011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "17 Jan 2023",
+               "amount": "16,338.93",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/17/2023,Individual Margin Z00000002, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,16338.93,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/17/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$16,338.93",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": "",
+               "orderNumber": "17012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "17 Jan 2023",
+               "amount": "2,000.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 01/17/2023,Individual Margin Z00000002, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,2000,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "01/17/2023",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$2,000.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "365011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "25.70",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,Individual Margin Z00000002, DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,,,,,,25.7,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$25.70",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "365012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "10.33",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,PAA Z00000001, DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,,,,,,10.33,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$10.33",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "365013",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "-10.33",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,PAA Z00000001, REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,10.33,1,,,,-10.33,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+10.330",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$10.33",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "365012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "-25.70",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,Individual Margin Z00000002, REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,25.7,1,,,,-25.7,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+25.700",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$25.70",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "365011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "35.58",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,PAA Z00000001, DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,,,,,,35.58,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$35.58",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "365011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "2.94",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,Roth IRA 200000001, DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,,,,,,2.94,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$2.94",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "365012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Dec 2022",
+               "amount": "-2.94",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/30/2022,Roth IRA 200000001, REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,2.94,1,,,,-2.94,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+2.940",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$2.94",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": "",
+               "orderNumber": "364011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "29 Dec 2022",
+               "amount": "5,000.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/29/2022,PAA Z00000001, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,5000,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/29/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$5,000.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "362013",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "TRANSFERRED TO FZFXX IS LIQUID FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "27 Dec 2022",
+               "amount": "--",
+               "txnTypeCode": "ST",
+               "txnCatCode": "ZZ",
+               "txnSubCatCode": "BY",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/27/2022,PAA Z00000001, TRANSFERRED TO FZFXX IS LIQUID FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,21831.74,,,,,,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/27/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "TRANSFERRED TO FZFXX IS LIQUID FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+21,831.740",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "362012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "EXCHANGED TO FZFXX FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "27 Dec 2022",
+               "amount": "--",
+               "txnTypeCode": "CT",
+               "txnCatCode": null,
+               "txnSubCatCode": "OC",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/27/2022,PAA Z00000001, EXCHANGED TO FZFXX FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,,,,,,,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/27/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "EXCHANGED TO FZFXX FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "362011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "TRANSFERRED FROM SPAXX TO FZFXX FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "27 Dec 2022",
+               "amount": "--",
+               "txnTypeCode": "ST",
+               "txnCatCode": "ZZ",
+               "txnSubCatCode": "SL",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/27/2022,PAA Z00000001, TRANSFERRED FROM SPAXX TO FZFXX FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,-21831.74,,,,,,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/27/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "TRANSFERRED FROM SPAXX TO FZFXX FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": " -21,831.740",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "358013",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Margin)",
+               "date": "23 Dec 2022",
+               "amount": "1,839.18",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "VOO",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/23/2022,Individual Margin Z00000002, DIVIDEND RECEIVED VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Margin), VOO, VANGUARD INDEX FUNDS S&P 500 ETF USD,Margin,,,,,,1839.18,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/23/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VOO",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD INDEX FUNDS S&P 500 ETF USD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$1,839.18",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "358011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash)",
+               "date": "23 Dec 2022",
+               "amount": "807.43",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "VOO",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/23/2022,Roth IRA 200000001, DIVIDEND RECEIVED VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash), VOO, VANGUARD INDEX FUNDS S&P 500 ETF USD,Cash,,,,,,807.43,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/23/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VOO",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD INDEX FUNDS S&P 500 ETF USD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$807.43",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "357014",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED NVIDIA CORPORATION COM (NVDA) (Margin)",
+               "date": "22 Dec 2022",
+               "amount": "0.28",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "NVDA",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/22/2022,Individual Margin Z00000002, DIVIDEND RECEIVED NVIDIA CORPORATION COM (NVDA) (Margin), NVDA, NVIDIA CORPORATION COM,Margin,,,,,,0.28,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/22/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "NVDA",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "NVIDIA CORPORATION COM",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED NVIDIA CORPORATION COM (NVDA) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$0.28",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "356011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+               "date": "21 Dec 2022",
+               "amount": "56.10",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "STIP",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/21/2022,PAA Z00000001, DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash), STIP, ISHARES 0-5 YEAR TIPS BOND ETF,Cash,,,,,,56.1,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/21/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "STIP",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "ISHARES 0-5 YEAR TIPS BOND ETF",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$56.10",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": "",
+               "orderNumber": "355011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "20 Dec 2022",
+               "amount": "5,250.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/20/2022,Individual Margin Z00000002, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,5250,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/20/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$5,250.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "355012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "YOU SOLD NETFLIX INC (NFLX) (Margin)",
+               "date": "20 Dec 2022",
+               "amount": "2,290.58",
+               "txnTypeCode": "ST",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "SL",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "NFLX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/20/2022,Individual Margin Z00000002, YOU SOLD NETFLIX INC (NFLX) (Margin), NFLX, NETFLIX INC,Margin,-8,286.33,,0.06,,2290.58,12/22/2022",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/20/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "NFLX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "NETFLIX INC",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "YOU SOLD NETFLIX INC (NFLX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": " -8.000",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "286.33",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$2,290.58",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Fees",
+                     "value": "$0.06",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Settlement Date",
+                     "value": "12/22/2022",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "355013",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED as of 12/19/2022 VANGUARD 500 INDEX ADMIRAL (VFIAX) (Margin)",
+               "date": "20 Dec 2022",
+               "amount": "2.83",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "VFIAX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/20/2022,Individual Margin Z00000002, DIVIDEND RECEIVED as of 12/19/2022 VANGUARD 500 INDEX ADMIRAL (VFIAX) (Margin), VFIAX, VANGUARD 500 INDEX ADMIRAL,Margin,,,,,,2.83,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/20/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VFIAX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD 500 INDEX ADMIRAL",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED as of 12/19/2022 VANGUARD 500 INDEX ADMIRAL (VFIAX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$2.83",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "355014",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT as of 12/19/2022 VANGUARD 500 INDEX ADMIRAL (VFIAX) (Margin)",
+               "date": "20 Dec 2022",
+               "amount": "-2.83",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "VFIAX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/20/2022,Individual Margin Z00000002, REINVESTMENT as of 12/19/2022 VANGUARD 500 INDEX ADMIRAL (VFIAX) (Margin), VFIAX, VANGUARD 500 INDEX ADMIRAL,Margin,0.008,351.93,,,,-2.83,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/20/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VFIAX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD 500 INDEX ADMIRAL",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT as of 12/19/2022 VANGUARD 500 INDEX ADMIRAL (VFIAX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+0.008",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "351.93",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$2.83",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "351011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "LONG-TERM CAP GAIN as of 12/15/2022 PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD (POAGX) (Margin)",
+               "date": "16 Dec 2022",
+               "amount": "229.45",
+               "txnTypeCode": "IT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "POAGX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/16/2022,Individual Margin Z00000002, LONG-TERM CAP GAIN as of 12/15/2022 PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD (POAGX) (Margin), POAGX, PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD,Margin,,,,,,229.45,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/16/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "POAGX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "LONG-TERM CAP GAIN as of 12/15/2022 PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD (POAGX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$229.45",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "351014",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT as of 12/15/2022 PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD (POAGX) (Margin)",
+               "date": "16 Dec 2022",
+               "amount": "-229.45",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "POAGX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/16/2022,Individual Margin Z00000002, REINVESTMENT as of 12/15/2022 PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD (POAGX) (Margin), POAGX, PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD,Margin,6.158,37.26,,,,-229.45,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/16/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "POAGX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT as of 12/15/2022 PRIMECAP ODYSSEY AGGRESSIVE GRWTH FD (POAGX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+6.158",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "37.26",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$229.45",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "351013",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "LONG-TERM CAP GAIN as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Margin)",
+               "date": "16 Dec 2022",
+               "amount": "190.82",
+               "txnTypeCode": "IT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "PRDSX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/16/2022,Individual Margin Z00000002, LONG-TERM CAP GAIN as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Margin), PRDSX, T ROWE PRICE QM US SML CAP GRWTH EQUITY,Margin,,,,,,190.82,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/16/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "PRDSX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "T ROWE PRICE QM US SML CAP GRWTH EQUITY",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "LONG-TERM CAP GAIN as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$190.82",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "351011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "LONG-TERM CAP GAIN as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Cash)",
+               "date": "16 Dec 2022",
+               "amount": "14.21",
+               "txnTypeCode": "IT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "PRDSX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/16/2022,Roth IRA 200000001, LONG-TERM CAP GAIN as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Cash), PRDSX, T ROWE PRICE QM US SML CAP GRWTH EQUITY,Cash,,,,,,14.21,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/16/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "PRDSX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "T ROWE PRICE QM US SML CAP GRWTH EQUITY",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "LONG-TERM CAP GAIN as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$14.21",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "351012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Cash)",
+               "date": "16 Dec 2022",
+               "amount": "-14.21",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "PRDSX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/16/2022,Roth IRA 200000001, REINVESTMENT as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Cash), PRDSX, T ROWE PRICE QM US SML CAP GRWTH EQUITY,Cash,0.406,34.97,,,,-14.21,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/16/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "PRDSX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "T ROWE PRICE QM US SML CAP GRWTH EQUITY",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+0.406",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "34.97",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$14.21",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "351015",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Margin)",
+               "date": "16 Dec 2022",
+               "amount": "-190.82",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "PRDSX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/16/2022,Individual Margin Z00000002, REINVESTMENT as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Margin), PRDSX, T ROWE PRICE QM US SML CAP GRWTH EQUITY,Margin,5.457,34.97,,,,-190.82,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/16/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "PRDSX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "T ROWE PRICE QM US SML CAP GRWTH EQUITY",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT as of 12/15/2022 T ROWE PRICE QM US SML CAP GRWTH EQUITY (PRDSX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+5.457",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "34.97",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$190.82",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "350011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "LONG-TERM CAP GAIN as of 12/14/2022 T ROWE PRICE INTL DISCOVERY FUND (PRIDX) (Margin)",
+               "date": "15 Dec 2022",
+               "amount": "108.91",
+               "txnTypeCode": "IT",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "PRIDX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/15/2022,Individual Margin Z00000002, LONG-TERM CAP GAIN as of 12/14/2022 T ROWE PRICE INTL DISCOVERY FUND (PRIDX) (Margin), PRIDX, T ROWE PRICE INTL DISCOVERY FUND,Margin,,,,,,108.91,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/15/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "PRIDX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "T ROWE PRICE INTL DISCOVERY FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "LONG-TERM CAP GAIN as of 12/14/2022 T ROWE PRICE INTL DISCOVERY FUND (PRIDX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$108.91",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "350012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT as of 12/14/2022 T ROWE PRICE INTL DISCOVERY FUND (PRIDX) (Margin)",
+               "date": "15 Dec 2022",
+               "amount": "-108.91",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "PRIDX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/15/2022,Individual Margin Z00000002, REINVESTMENT as of 12/14/2022 T ROWE PRICE INTL DISCOVERY FUND (PRIDX) (Margin), PRIDX, T ROWE PRICE INTL DISCOVERY FUND,Margin,1.872,58.18,,,,-108.91,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/15/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "PRIDX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "T ROWE PRICE INTL DISCOVERY FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT as of 12/14/2022 T ROWE PRICE INTL DISCOVERY FUND (PRIDX) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+1.872",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "58.18",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$108.91",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": "",
+               "orderNumber": "347011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "12 Dec 2022",
+               "amount": "20,000.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/12/2022,PAA Z00000001, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,20000,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/12/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$20,000.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "342011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+               "date": "07 Dec 2022",
+               "amount": "184.80",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "STIP",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/07/2022,Roth IRA 200000001, DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash), STIP, ISHARES 0-5 YEAR TIPS BOND ETF,Cash,,,,,,184.8,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/07/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "STIP",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "ISHARES 0-5 YEAR TIPS BOND ETF",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$184.80",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "342011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Margin)",
+               "date": "07 Dec 2022",
+               "amount": "56.63",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "STIP",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/07/2022,Individual Margin Z00000002, DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Margin), STIP, ISHARES 0-5 YEAR TIPS BOND ETF,Margin,,,,,,56.63,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/07/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "STIP",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "ISHARES 0-5 YEAR TIPS BOND ETF",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$56.63",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "342011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+               "date": "07 Dec 2022",
+               "amount": "18.34",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "STIP",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/07/2022,PAA Z00000001, DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash), STIP, ISHARES 0-5 YEAR TIPS BOND ETF,Cash,,,,,,18.34,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/07/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "STIP",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "ISHARES 0-5 YEAR TIPS BOND ETF",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$18.34",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "336011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "YOU SOLD ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+               "date": "01 Dec 2022",
+               "amount": "179,261.32",
+               "txnTypeCode": "ST",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "SL",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "STIP",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/01/2022,Roth IRA 200000001, YOU SOLD ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash), STIP, ISHARES 0-5 YEAR TIPS BOND ETF,Cash,-1834,97.75,,4.11,,179261.32,12/05/2022",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/01/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "STIP",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "ISHARES 0-5 YEAR TIPS BOND ETF",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "YOU SOLD ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": " -1,834.000",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "97.7456",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$179,261.32",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Fees",
+                     "value": "$4.11",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Settlement Date",
+                     "value": "12/05/2022",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "336011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "YOU SOLD ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Margin)",
+               "date": "01 Dec 2022",
+               "amount": "54,939.86",
+               "txnTypeCode": "ST",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "SL",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "STIP",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/01/2022,Individual Margin Z00000002, YOU SOLD ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Margin), STIP, ISHARES 0-5 YEAR TIPS BOND ETF,Margin,-562,97.76,,1.26,,54939.86,12/05/2022",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/01/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "STIP",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "ISHARES 0-5 YEAR TIPS BOND ETF",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "YOU SOLD ISHARES 0-5 YEAR TIPS BOND ETF (STIP) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": " -562.000",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "97.76",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$54,939.86",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Fees",
+                     "value": "$1.26",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Settlement Date",
+                     "value": "12/05/2022",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "336012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Margin)",
+               "date": "01 Dec 2022",
+               "amount": "-91,843.04",
+               "txnTypeCode": "ST",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "BY",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "VOO",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/01/2022,Individual Margin Z00000002, YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Margin), VOO, VANGUARD INDEX FUNDS S&P 500 ETF USD,Margin,244,376.41,,,,-91843.04,12/05/2022",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/01/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VOO",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD INDEX FUNDS S&P 500 ETF USD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+244.000",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "376.4059",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$91,843.04",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Settlement Date",
+                     "value": "12/05/2022",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "336012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash)",
+               "date": "01 Dec 2022",
+               "amount": "-181,379.98",
+               "txnTypeCode": "ST",
+               "txnCatCode": "IA",
+               "txnSubCatCode": "BY",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "VOO",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 12/01/2022,Roth IRA 200000001, YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash), VOO, VANGUARD INDEX FUNDS S&P 500 ETF USD,Cash,483,375.53,,,,-181379.98,12/05/2022",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "12/01/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "VOO",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "VANGUARD INDEX FUNDS S&P 500 ETF USD",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "YOU BOUGHT VANGUARD INDEX FUNDS S&P 500 ETF USD (VOO) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+483.000",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "375.5279",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$181,379.98",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Settlement Date",
+                     "value": "12/05/2022",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "335011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "30 Nov 2022",
+               "amount": "91.47",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/30/2022,Individual Margin Z00000002, DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,,,,,,91.47,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$91.47",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "335012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "30 Nov 2022",
+               "amount": "-91.47",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/30/2022,Individual Margin Z00000002, REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,91.47,1,,,,-91.47,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+91.470",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$91.47",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "335011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Nov 2022",
+               "amount": "6.45",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/30/2022,Roth IRA 200000001, DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,,,,,,6.45,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$6.45",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "335011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Nov 2022",
+               "amount": "3.71",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/30/2022,PAA Z00000001, DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,,,,,,3.71,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$3.71",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "335012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Nov 2022",
+               "amount": "-3.71",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/30/2022,PAA Z00000001, REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,3.71,1,,,,-3.71,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+3.710",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$3.71",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "335012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "30 Nov 2022",
+               "amount": "-6.45",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/30/2022,Roth IRA 200000001, REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,6.45,1,,,,-6.45,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/30/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+6.450",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$6.45",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": "",
+               "orderNumber": "327011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "22 Nov 2022",
+               "amount": "500.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/22/2022,PAA Z00000001, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,500,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/22/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$500.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": "",
+               "orderNumber": "326011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "21 Nov 2022",
+               "amount": "5,250.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/21/2022,Individual Margin Z00000002, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,5250,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/21/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$5,250.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "315011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED APPLE INC (AAPL) (Margin)",
+               "date": "10 Nov 2022",
+               "amount": "0.46",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "01",
+               "status": null,
+               "symbol": "AAPL",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 11/10/2022,Individual Margin Z00000002, DIVIDEND RECEIVED APPLE INC (AAPL) (Margin), AAPL, APPLE INC,Margin,,,,,,0.46,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "11/10/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "AAPL",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "APPLE INC",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED APPLE INC (AAPL) (Margin)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Margin",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$0.46",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "305011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "INTEREST EARNED CASH (315994103) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "21.07",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "IT",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "315994103",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,Individual Margin Z00000002, INTEREST EARNED CASH (315994103) (Cash), 315994103, CASH,Cash,,,,,,21.07,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "315994103",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "CASH",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "INTEREST EARNED CASH (315994103) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$21.07",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "305012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "26.18",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,Individual Margin Z00000002, DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,,,,,,26.18,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$26.18",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000002",
+               "txnTypNum": null,
+               "orderNumber": "305013",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "-26.18",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "FZFXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,Individual Margin Z00000002, REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash), FZFXX, FIDELITY TREASURY MONEY MARKET FUND,Cash,26.18,1,,,,-26.18,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "FZFXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY TREASURY MONEY MARKET FUND",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY TREASURY MONEY MARKET FUND (FZFXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+26.180",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$26.18",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "305011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "5.32",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,Roth IRA 200000001, DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,,,,,,5.32,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$5.32",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "305011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "1.07",
+               "txnTypeCode": "IT",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "VP",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,PAA Z00000001, DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,,,,,,1.07,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "DIVIDEND RECEIVED FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$1.07",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": null,
+               "orderNumber": "305012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "-1.07",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,PAA Z00000001, REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,1.07,1,,,,-1.07,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+1.070",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$1.07",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "200000001",
+               "txnTypNum": null,
+               "orderNumber": "305012",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+               "date": "31 Oct 2022",
+               "amount": "-5.32",
+               "txnTypeCode": "ST",
+               "txnCatCode": "DV",
+               "txnSubCatCode": "RN",
+               "investmentTypeCode": "04",
+               "status": null,
+               "symbol": "SPAXX",
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/31/2022,Roth IRA 200000001, REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash), SPAXX, FIDELITY GOVERNMENT MONEY MARKET,Cash,5.32,1,,,,-5.32,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/31/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol",
+                     "value": "SPAXX",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Symbol Desc.",
+                     "value": "FIDELITY GOVERNMENT MONEY MARKET",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "REINVESTMENT FIDELITY GOVERNMENT MONEY MARKET (SPAXX) (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Shares",
+                     "value": "+5.320",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Price",
+                     "value": "1.00",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "-$5.32",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            },
+            {
+               "acctNum": "Z00000001",
+               "txnTypNum": "",
+               "orderNumber": "298011",
+               "isAnnuity": null,
+               "isExchange": null,
+               "isCrypto": null,
+               "cryptoType": null,
+               "description": "Electronic Funds Transfer Received (Cash)",
+               "date": "24 Oct 2022",
+               "amount": "1,000.00",
+               "txnTypeCode": "CT",
+               "txnCatCode": "X2",
+               "txnSubCatCode": "DP",
+               "investmentTypeCode": null,
+               "status": null,
+               "symbol": null,
+               "cashBalance": null,
+               "filiCsvData": [],
+               "brokCsvData": " 10/24/2022,PAA Z00000001, Electronic Funds Transfer Received (Cash),  , No Description,Cash,,,,,,1000,",
+               "imageDetail": {
+                  "imageId": null,
+                  "checkImage": null,
+                  "checkImageURL": null,
+                  "__typename": "ImageDetail"
+               },
+               "detailItems": [
+                  {
+                     "key": "Date",
+                     "value": "10/24/2022",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Description",
+                     "value": "Electronic Funds Transfer Received (Cash)",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Type",
+                     "value": "Cash",
+                     "__typename": "DetailItem"
+                  },
+                  {
+                     "key": "Amount",
+                     "value": "$1,000.00",
+                     "__typename": "DetailItem"
+                  }
+               ],
+               "annuityDetail": null,
+               "__typename": "History"
+            }
+         ],
+         "footNote": {
+            "showSettlements": true,
+            "isMoreThanTwentyAccounts": null,
+            "selectMultipleAccounts": true,
+            "isRetirementIncome": false,
+            "isLinkBrokerage": false,
+            "asOfDate": "01/22/2023, 12:00 AM",
+            "hasShadowTransaction": true,
+            "showCurrency": false,
+            "__typename": "FootNote"
+         },
+         "__typename": "Transactions"
+      }
+   }
+}

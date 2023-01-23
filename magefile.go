@@ -171,7 +171,7 @@ func Lint() error {
 	return nil
 }
 
-//  Run go vet linter
+// Run go vet linter
 func Vet() error {
 	fmt.Println("Go Vet")
 

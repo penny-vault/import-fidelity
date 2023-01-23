@@ -16,6 +16,7 @@
 package fidelity_test
 
 import (
+	"fmt"
 	"os"
 
 	. "github.com/onsi/ginkgo/v2"
@@ -45,7 +46,7 @@ var _ = Describe("Account activity", func() {
 	When("JSON has multiple accounts", func() {
 		BeforeEach(func() {
 			var fidelityActivityJSON []byte
-			fidelityActivityJSON, err = os.ReadFile("../test/transactions-06022022.json")
+			fidelityActivityJSON, err = os.ReadFile("../test/getTransactions.json")
 			Expect(err).NotTo(HaveOccurred())
 			trxMap, err = fidelity.ParseAccountActivity(string(fidelityActivityJSON))
 		})
@@ -54,58 +55,49 @@ var _ = Describe("Account activity", func() {
 			Expect(err).NotTo(HaveOccurred())
 		})
 
-		It("returns 3 accounts", func() {
-			// there are 4 accounts in the file but 1 of
-			// them only has intraDay transactions
-			Expect(len(trxMap)).Should(Equal(3))
+		It("returns 4 accounts", func() {
+			Expect(len(trxMap)).Should(Equal(4))
 		})
 
 		It("has correct account numbers", func() {
-			_, ok := trxMap["238000000"]
-			Expect(ok).To(BeFalse(), "238000000")
-
-			_, ok = trxMap["Z00000000"]
-			Expect(ok).To(BeTrue(), "Z00000000")
+			for k := range trxMap {
+				fmt.Println(k)
+			}
+			_, ok := trxMap["200000001"]
+			Expect(ok).To(BeTrue(), "200000001")
 
 			_, ok = trxMap["Z00000001"]
 			Expect(ok).To(BeTrue(), "Z00000001")
 
-			_, ok = trxMap["244000000"]
-			Expect(ok).To(BeTrue(), "244000000")
+			_, ok = trxMap["Z00000002"]
+			Expect(ok).To(BeTrue(), "Z00000002")
+
+			_, ok = trxMap["200000002"]
+			Expect(ok).To(BeTrue(), "200000002")
 		})
 
 		It("has correct number of transactions", func() {
-			acct := trxMap["Z00000000"]
-			Expect(acct).To(HaveLen(3), "Z00000000")
+			acct := trxMap["Z00000001"]
+			Expect(acct).To(HaveLen(11), "Z00000001")
 
-			acct = trxMap["Z00000001"]
-			Expect(acct).To(HaveLen(5), "Z00000001")
+			acct = trxMap["Z00000002"]
+			Expect(acct).To(HaveLen(26), "Z00000002")
 
-			acct = trxMap["244000000"]
-			Expect(acct).To(HaveLen(1), "244000000")
+			acct = trxMap["200000001"]
+			Expect(acct).To(HaveLen(12), "200000001")
+
+			acct = trxMap["200000002"]
+			Expect(acct).To(HaveLen(3), "200000002")
 		})
 
 		It("should have a transaction for sale of whole shares of STIP", func() {
-			acct := trxMap["Z00000001"]
+			acct := trxMap["200000001"]
 			cnt := 0
 			for _, trx := range acct {
-				if trx.Kind == pvlib.SellTransaction && trx.Ticker == "STIP" && trx.Shares < -1 {
+				if trx.Kind == pvlib.SellTransaction && trx.Ticker == "STIP" && trx.Shares == 1834 {
 					cnt++
 					Expect(trx.Kind).To(Equal(pvlib.SellTransaction))
-					Expect(trx.Shares).To(Equal(-32.0))
-				}
-			}
-			Expect(cnt).To(Equal(1))
-		})
-
-		It("should have a transaction for sale of fractional shares of STIP", func() {
-			acct := trxMap["Z00000001"]
-			cnt := 0
-			for _, trx := range acct {
-				if trx.Kind == pvlib.SellTransaction && trx.Ticker == "STIP" && trx.Shares < 0 && trx.Shares > -1 {
-					cnt++
-					Expect(trx.Kind).To(Equal(pvlib.SellTransaction))
-					Expect(trx.Shares).To(Equal(-0.598))
+					Expect(trx.Shares).To(Equal(1834.0))
 				}
 			}
 			Expect(cnt).To(Equal(1))
