@@ -19,9 +19,9 @@ const (
 	HomePageURL   = `https://fidelity.com/`
 	LoginURL      = `https://digital.fidelity.com/prgw/digital/login/full-page`
 	LogoutURL     = `https://login.fidelity.com/ftgw/Fidelity/RtlCust/Logout/Init?AuthRedUrl=https://www.fidelity.com/customer-service/customer-logout`
-	SummaryURL    = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#summary`
-	ActivityURL   = `https://oltx.fidelity.com/ftgw/fbc/oftop/portfolio#activity`
-	ActivityAPI   = `https://digital.fidelity.com/ftgw/digital/acct-activity/activity-tab-history/api`
+	SummaryURL    = `https://digital.fidelity.com/ftgw/digital/portfolio/summary`
+	ActivityURL   = `https://digital.fidelity.com/ftgw/digital/portfolio/activity`
+	GraphQLURL    = `https://digital.fidelity.com/ftgw/digital/portfolio/api/graphql`
 	QuoteURL      = `https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=%s`
 	MarketDataURL = `https://api.markitdigital.com/xref/v1/symbols/%s`
 	CUSIPURL      = `https://quotes.fidelity.com/mmnet/SymLookup.phtml?reqforlookup=REQUESTFORLOOKUP&productid=mmnet&isLoggedIn=mmnet&rows=50&for=%s&by=symbol&criteria=%s&submit=Search`

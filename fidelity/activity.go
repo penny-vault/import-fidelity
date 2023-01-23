@@ -16,140 +16,146 @@
 package fidelity
 
 import (
+	"errors"
+	"fmt"
+	"math"
 	"strconv"
+	"strings"
 	"time"
 
+	"github.com/go-resty/resty/v2"
 	"github.com/google/uuid"
 	"github.com/penny-vault/pvlib"
-	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
 	"github.com/tidwall/gjson"
 )
 
-type TransactionDetails struct {
-	AccountNumber string `json:"acctNum"`
-	AccountName   string `json:"acctName"`
-	AccountType   string `json:"acctType"`
-
-	IsChecks     bool `json:"isChecks"`
-	IsCitAccount bool `json:"isCITAccount"`
-	IsDeposit    bool `json:"isDeposit"`
-	IsMsla       bool `json:"isMsla"`
-	IsMutualFund bool `json:"isMutualFund"`
-
-	PostedDate  int    `json:"postedDate"`
-	Date        string `json:"date"`
-	OrderNumber string `json:"orderNumber"`
-	Description string `json:"autoTxnDesc"`
-	MtTitle     string `json:"mtTitle"`
-
-	AmountDetail struct {
-		Price      string  `json:"price"`
-		Shares     float64 `json:"shares"`
-		Fee        float64 `json:"fee"`
-		Commission float64 `json:"commission"`
-		Net        float64 `json:"net"`
-		Interest   float64 `json:"interest"`
-	} `json:"amtDetail"`
-
-	BrokerageDetails struct {
-		AccountType          string `json:"brokerageAccountType"`
-		TransactionAttribute struct {
-			TransactionID string `json:"txnTypNum"`
-		} `json:"txnAttribute"`
-		DateDetail struct {
-			IsValidSettlementDate bool   `json:"isValidSettlementDate"`
-			SettlementDate        string `json:"settlementDate"`
-		} `json:"dateDetail"`
-		SecurityDetail struct {
-			SecurityDescription           string `json:"securityDesc"`
-			MobileSecurityDescription     string `json:"mobileSecurityDesc"`
-			QuotableSecurity              bool   `json:"quotableSecurityInd"`
-			SecurityType                  string `json:"secType"`
-			AssetClass                    string `json:"assetClass"`
-			OSISymbolType                 string `json:"OSISymbolType"`
-			CUSIP                         string `json:"67066G104"`
-			CollateralIndicator           bool   `json:"collateralIndicator"`
-			MMRIndication                 bool   `json:"mmrIndicator"`
-			Symbol                        string `json:"symbol"`
-			FloorTradingSymbol            string `json:"floorTradingSymbol"`
-			FloorTradingSymbolDescription string `json:"floorTradingSymbolDesc"`
-			QuoteText                     string `json:"quoteText"`
-			SecurityID                    string `json:"securityId"`
-		} `json:"securityDetail"`
-	} `json:"brokerageDetail"`
-
-	IntradayIndicator            bool   `json:"intradayInd"`
-	MultiCurrencyTransactionType string `json:"multiCurrencyTransactionType"`
-	HasChecks                    bool   `json:"hasChecks"`
-	HasImages                    bool   `json:"hasImages"`
-	Amount                       string `json:"amount"`
-	TransactionDescription       string `json:"txnDescription"`
-}
+var (
+	ErrInvalidResponseCode = errors.New("invalid status code returned from activity graph QL")
+)
 
 func isCoreHolding(ticker string) bool {
 	return ticker == "FCASH" || ticker == "SPAXX" || ticker == "FZFXX"
 }
 
-func determineTransactionKind(shares float64, amount float64, ticker string, isDeposit bool) string {
-	if isDeposit {
-		if isCoreHolding(ticker) {
-			return pvlib.InterestTransaction
+func determineTransactionKind(trx pvlib.Transaction, trxType, trxCategory, trxSubCategory string) string {
+	switch trxType {
+	case "CT":
+		switch trxCategory {
+		case "DV":
+			switch trxSubCategory {
+			case "VP":
+				return pvlib.DividendTransaction
+			}
+		case "IA":
+			switch trxSubCategory {
+			case "OC":
+				if trx.TotalValue <= 0 {
+					return pvlib.WithdrawTransaction
+				} else {
+					return pvlib.DepositTransaction
+				}
+			}
+		case "X2":
+			switch trxSubCategory {
+			case "DP":
+				return pvlib.DepositTransaction
+			}
+		case "X1":
+			switch trxSubCategory {
+			case "OC":
+				return pvlib.WithdrawTransaction
+			}
 		}
-
-		if shares < 0 && ticker != "" {
-			return pvlib.SellTransaction
+	case "IT":
+		switch trxCategory {
+		case "DV":
+			switch trxSubCategory {
+			case "VP":
+				return pvlib.DividendTransaction
+			case "IT":
+				return pvlib.InterestTransaction
+			}
+		case "IA":
+			switch trxSubCategory {
+			case "VP":
+				return pvlib.DividendTransaction
+			}
 		}
-
-		if ticker == "" {
-			return pvlib.DepositTransaction
+	case "ST":
+		switch trxCategory {
+		case "IA":
+			switch trxSubCategory {
+			case "BY":
+				return pvlib.BuyTransaction
+			case "SL":
+				return pvlib.SellTransaction
+			}
+		case "DV":
+			switch trxSubCategory {
+			case "RN": // Re-invest
+				return pvlib.BuyTransaction
+			}
+		case "ZZ":
+			switch trxSubCategory {
+			case "BY":
+				return pvlib.BuyTransaction
+			case "SL":
+				return pvlib.SellTransaction
+			}
 		}
 	}
 
-	if shares == 0 && ticker == "" {
-		return pvlib.WithdrawTransaction
-	}
-
-	if shares > 0 {
-		return pvlib.BuyTransaction
-	}
-
-	if shares < 0 {
-		return pvlib.SellTransaction
-	}
-
-	if shares == 0 && ticker != "" {
-		return pvlib.DividendTransaction
-	}
-
-	log.Error().Float64("Shares", shares).Float64("Amount", amount).Str("Ticker", ticker).Bool("isDeposit", isDeposit).Msg("could not determine transaction type")
+	log.Warn().Str("txnTypeCode", trxType).Str("txnCategory", trxCategory).Str("txnSubCategory", trxSubCategory).Object("Transaction", &trx).Msg("could not determine transaction type")
 	return ""
 }
 
-func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, error) {
-	subLog := log.With().Str("Url", ActivityURL).Logger()
-	// load the activity page
-	req, err := page.ExpectRequest(ActivityAPI, func() error {
-		_, err := page.Goto(ActivityURL)
-		return err
-	})
-	if err != nil {
-		subLog.Error().Err(err).Msg("could not load activity page")
+func AccountActivity(client *resty.Client, accounts []*Account) (map[string][]*pvlib.Transaction, error) {
+	idList := make([]string, len(accounts))
+	for idx, account := range accounts {
+		idList[idx] = account.AccountNumber
+	}
+	toDate := time.Now()
+	fromDate := toDate.Add(86400 * time.Second * -90)
+	gqlQuery := GraphQLQuery{
+		OperationName: "getTransactions",
+		Variables: map[string]any{
+			"isNewOrderApi":   false,
+			"isSupportCrypto": false,
+			"acctIdList":      strings.Join(idList, ","),
+			"acctDetailList":  accounts,
+			"searchCriteriaDetail": map[string]any{
+				"txnFromDate":   fromDate.Format("01/02/2006"),
+				"txnToDate":     toDate.Format("01/02/2006"),
+				"timePeriod":    90,
+				"txnCat":        nil,
+				"viewType":      "NON_CORE",
+				"acctHistDays":  "Past 90 Days",
+				"histSortDir":   "D",
+				"acctHistSort":  "DATE",
+				"hasBasketName": true,
+			},
+		},
+		Query: GQLGetTransactions,
+	}
+
+	bodyStr := ""
+	if resp, err := client.R().
+		SetBody(gqlQuery).
+		Post(GraphQLURL); err == nil {
+		if resp.StatusCode() >= 200 && resp.StatusCode() < 300 {
+			// it worked!
+			bodyStr = resp.String()
+		} else {
+			// invalid status code
+			log.Error().Int("StatusCode", resp.StatusCode()).Str("Status", resp.Status()).Msg("invalid status code received")
+			return nil, ErrInvalidResponseCode
+		}
+	} else {
+		log.Error().Err(err).Msg("request failed")
 		return nil, err
 	}
 
-	resp, err := req.Response()
-	if err != nil {
-		subLog.Error().Err(err).Msg("error while waiting for response to activity api")
-		return nil, err
-	}
-
-	body, err := resp.Body()
-	if err != nil {
-		subLog.Error().Err(err).Msg("error while fetching body")
-		return nil, err
-	}
-	bodyStr := string(body)
 	trxMap, err := ParseAccountActivity(bodyStr)
 	if err != nil {
 		return nil, err
@@ -158,19 +164,45 @@ func AccountActivity(page playwright.Page) (map[string][]*pvlib.Transaction, err
 	return trxMap, nil
 }
 
+func getDetailItemNumber(value gjson.Result, key string) float64 {
+	var err error
+	retVal := 0.0
+	detailValue := value.Get(fmt.Sprintf(`detailItems.#(key=="%s").value`, key))
+	if detailValue.Exists() {
+		strVal := detailValue.String()
+		strVal = strings.ReplaceAll(strVal, " ", "")
+		strVal = strings.ReplaceAll(strVal, "$", "")
+		strVal = strings.ReplaceAll(strVal, ",", "")
+		retVal, err = strconv.ParseFloat(strVal, 64)
+		if err != nil {
+			log.Error().Err(err).Str("key", key).Str(key, detailValue.String()).Msg("could not parse float value from detailItems")
+			return 0.0
+		}
+	}
+	return retVal
+}
+
+func getDollarValue(value gjson.Result, key string) float64 {
+	val := value.Get(key).String()
+	val = strings.ReplaceAll(val, "$", "")
+	val = strings.ReplaceAll(val, ",", "")
+	retVal, err := strconv.ParseFloat(val, 64)
+	if err != nil {
+		log.Error().Err(err).Str("key", key).Str("val", val).Msg("could not convert dollar value to a float")
+		return 0.0
+	}
+	return retVal
+}
+
 // ParseAccountActivity reads a json string with account activity downloaded from Fidelity
 func ParseAccountActivity(fidelityActivityJSON string) (trxMap map[string][]*pvlib.Transaction, err error) {
+	log.Info().Msg("loading account activity")
 	nyc, _ := time.LoadLocation("America/New_York")
 	trxMap = make(map[string][]*pvlib.Transaction, 1)
-	numTransactions := gjson.Get(fidelityActivityJSON, "transaction.txnDetails.txnDetail.#").Int()
+	numTransactions := gjson.Get(fidelityActivityJSON, "data.getTransactions.historys.#").Int()
 	log.Debug().Int64("NumTransactions", numTransactions).Msg("downloaded transactions")
-	result := gjson.Get(fidelityActivityJSON, "transaction.txnDetails.txnDetail")
+	result := gjson.Get(fidelityActivityJSON, "data.getTransactions.historys")
 	result.ForEach(func(key, value gjson.Result) bool {
-		// skip intraday activity
-		if value.Get("intradayInd").Bool() {
-			return true
-		}
-
 		id := uuid.New()
 		idBinary, err := id.MarshalBinary()
 		if err != nil {
@@ -178,7 +210,7 @@ func ParseAccountActivity(fidelityActivityJSON string) (trxMap map[string][]*pvl
 			return false
 		}
 
-		date, err := time.Parse("01/02/2006", value.Get("date").String())
+		date, err := time.Parse("02 Jan 2006", value.Get("date").String())
 		if err != nil {
 			log.Error().Err(err).Str("DateValue", value.Get("date").String()).Msg("could not parse transaction date")
 			return true
@@ -186,29 +218,41 @@ func ParseAccountActivity(fidelityActivityJSON string) (trxMap map[string][]*pvl
 
 		date = time.Date(date.Year(), date.Month(), date.Day(), 16, 0, 0, 0, nyc)
 
-		pricePerShare, err := strconv.ParseFloat(value.Get("amtDetail.price").String(), 64)
-		if err != nil {
-			log.Error().Err(err).Str("PricePerShare", value.Get("amtDetail.price").String()).Msg("could not parse transaction price to float")
-			return true
-		}
-
 		trx := pvlib.Transaction{
 			ID:            idBinary,
-			Commission:    value.Get("amtDetail.commission").Float() + value.Get("amtDetail.fee").Float(),
+			Commission:    math.Abs(getDetailItemNumber(value, "Commission")) + math.Abs(getDetailItemNumber(value, "Fees")),
 			Date:          date,
-			Memo:          value.Get("txnDescription").String(),
-			PricePerShare: pricePerShare,
-			Shares:        value.Get("amtDetail.shares").Float(),
+			Memo:          value.Get("description").String(),
+			PricePerShare: getDetailItemNumber(value, "Price"),
+			Shares:        getDetailItemNumber(value, "Shares"),
 			Source:        "fidelity.com",
 			SourceID:      value.Get("orderNumber").String(),
-			Ticker:        value.Get("brokerageDetail.securityDetail.symbol").String(),
-			TotalValue:    value.Get("amtDetail.net").Float(),
+			Ticker:        value.Get("symbol").String(),
+			TotalValue:    getDollarValue(value, "amount"),
 		}
 
 		acctNum := value.Get("acctNum").String()
 
 		// determine kind
-		trx.Kind = determineTransactionKind(trx.Shares, trx.TotalValue, trx.Ticker, value.Get("isDeposit").Bool())
+		trx.Kind = determineTransactionKind(trx, value.Get("txnTypeCode").String(),
+			value.Get("txnCatCode").String(),
+			value.Get("txnSubCatCode").String())
+
+		if trx.Kind == "" {
+			// skip unknown transactions
+			return true
+		}
+
+		// modify core holdings
+		if isCoreHolding(trx.Ticker) {
+			if trx.Kind == pvlib.BuyTransaction || trx.Kind == pvlib.SellTransaction {
+				// its a buy/sell just ignore
+				return true
+			}
+			if trx.Kind == pvlib.DividendTransaction {
+				trx.Kind = pvlib.InterestTransaction
+			}
+		}
 
 		if trx.Kind == pvlib.BuyTransaction && isCoreHolding(trx.Ticker) {
 			// This is an investment in the core holding which is effectively a cash investment.
@@ -219,9 +263,16 @@ func ParseAccountActivity(fidelityActivityJSON string) (trxMap map[string][]*pvl
 
 		if trx.Kind == pvlib.DepositTransaction || trx.Kind == pvlib.WithdrawTransaction {
 			trx.Ticker = "CASH"
+		}
+
+		if trx.Kind == pvlib.DepositTransaction || trx.Kind == pvlib.WithdrawTransaction || trx.Kind == pvlib.DividendTransaction || trx.Kind == pvlib.InterestTransaction {
 			trx.PricePerShare = 1.0
 			trx.Shares = trx.TotalValue
 		}
+
+		trx.Shares = math.Abs(trx.Shares)
+		trx.PricePerShare = math.Abs(trx.PricePerShare)
+		trx.TotalValue = math.Abs(trx.TotalValue)
 
 		if trxList, ok := trxMap[acctNum]; !ok {
 			trxList := make([]*pvlib.Transaction, 0, numTransactions)

@@ -65,7 +65,19 @@ var activityCmd = &cobra.Command{
 			os.Exit(errorcode.Login)
 		}
 
-		transactions, err := fidelity.AccountActivity(page)
+		client, err := fidelity.RestyFromBrowser(context)
+		if err != nil {
+			log.Error().Msg("could not get Resty client - exiting.")
+			os.Exit(-1)
+		}
+
+		accounts, err := fidelity.GetAccounts(client)
+		if err != nil {
+			log.Error().Msg("error fetching users accounts")
+			os.Exit(-1)
+		}
+
+		transactions, err := fidelity.AccountActivity(client, accounts)
 		if err != nil {
 			fidelity.StopPlaywright(page, context, browser, pw)
 			os.Exit(errorcode.Activity)
@@ -105,25 +117,25 @@ var activityCmd = &cobra.Command{
 
 			// parquet schema
 			schema := `
-				{
-				  "Tag": "name=parquet_go_root, repetitiontype=REQUIRED",
-				  "Fields": [
-					{"Tag": "name=account, inname=Account, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=id, inname=ID, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=commission, inname=Commission, type=DOUBLE, repetitiontype=REQUIRED"},
-					{"Tag": "name=compositeFigi, inname=CompositeFIGI, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=date, inname=Date, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=kind, inname=Kind, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=memo, inname=Memo, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=pricePerShare, inname=PricePerShare, type=DOUBLE, repetitiontype=REQUIRED"},
-					{"Tag": "name=shares, inname=Shares, type=DOUBLE, repetitiontype=REQUIRED"},
-					{"Tag": "name=source, inname=Source, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=sourceId, inname=SourceID, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=ticker, inname=Ticker, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
-					{"Tag": "name=totalValue, inname=TotalValue, type=DOUBLE, repetitiontype=REQUIRED"}
-					]
-				}
-				`
+						{
+						  "Tag": "name=parquet_go_root, repetitiontype=REQUIRED",
+						  "Fields": [
+							{"Tag": "name=account, inname=Account, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=id, inname=ID, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=commission, inname=Commission, type=DOUBLE, repetitiontype=REQUIRED"},
+							{"Tag": "name=compositeFigi, inname=CompositeFIGI, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=date, inname=Date, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=kind, inname=Kind, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=memo, inname=Memo, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=pricePerShare, inname=PricePerShare, type=DOUBLE, repetitiontype=REQUIRED"},
+							{"Tag": "name=shares, inname=Shares, type=DOUBLE, repetitiontype=REQUIRED"},
+							{"Tag": "name=source, inname=Source, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=sourceId, inname=SourceID, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=ticker, inname=Ticker, type=BYTE_ARRAY, convertedtype=UTF8, repetitiontype=REQUIRED"},
+							{"Tag": "name=totalValue, inname=TotalValue, type=DOUBLE, repetitiontype=REQUIRED"}
+							]
+						}
+						`
 
 			parquetWriter, err := writer.NewParquetWriter(fh, schema, 4)
 			if err != nil {
