@@ -1,4 +1,4 @@
-// Copyright 2022
+// Copyright 2022-2023
 // SPDX-License-Identifier: Apache-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -43,27 +43,22 @@ func determineTransactionKind(trx pvlib.Transaction, trxType, trxCategory, trxSu
 	case "CT":
 		switch trxCategory {
 		case "DV":
-			switch trxSubCategory {
-			case "VP":
+			if trxSubCategory == "VP" {
 				return pvlib.DividendTransaction
 			}
 		case "IA":
-			switch trxSubCategory {
-			case "OC":
+			if trxSubCategory == "OC" {
 				if trx.TotalValue <= 0 {
 					return pvlib.WithdrawTransaction
-				} else {
-					return pvlib.DepositTransaction
 				}
+				return pvlib.DepositTransaction
 			}
 		case "X2":
-			switch trxSubCategory {
-			case "DP":
+			if trxSubCategory == "DP" {
 				return pvlib.DepositTransaction
 			}
 		case "X1":
-			switch trxSubCategory {
-			case "OC":
+			if trxSubCategory == "OC" {
 				return pvlib.WithdrawTransaction
 			}
 		}
@@ -77,8 +72,7 @@ func determineTransactionKind(trx pvlib.Transaction, trxType, trxCategory, trxSu
 				return pvlib.InterestTransaction
 			}
 		case "IA":
-			switch trxSubCategory {
-			case "VP":
+			if trxSubCategory == "VP" {
 				return pvlib.DividendTransaction
 			}
 		}
@@ -92,8 +86,7 @@ func determineTransactionKind(trx pvlib.Transaction, trxType, trxCategory, trxSu
 				return pvlib.SellTransaction
 			}
 		case "DV":
-			switch trxSubCategory {
-			case "RN": // Re-invest
+			if trxSubCategory == "RN" { // Re-invest
 				return pvlib.BuyTransaction
 			}
 		case "ZZ":
