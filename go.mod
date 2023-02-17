@@ -10,7 +10,7 @@ require (
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.14.0
 	github.com/onsi/ginkgo/v2 v2.8.1
-	github.com/onsi/gomega v1.26.0
+	github.com/onsi/gomega v1.27.0
 	github.com/penny-vault/pvlib v0.1.0
 	github.com/playwright-community/playwright-go v0.2000.1
 	github.com/rs/zerolog v1.29.0
