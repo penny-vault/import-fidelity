@@ -27,3 +27,7 @@ import-fidelity.toml
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Notes and other ancillary files
+buy.md
+
