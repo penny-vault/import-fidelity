@@ -88,20 +88,20 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 		log.Info().Bool("Download", downloadFromBackblaze).Bool("Upload", uploadToBackblaze).Msg("backblaze flags")
 
 		// check if arguments should be read from file
-		switch len(args) {
-		case 0:
+		if len(args) == 0 {
 			if downloadFromBackblaze {
 				if err := backblaze.Download(viper.GetString("parquet_file"), viper.GetString("backblaze.bucket")); err != nil {
 					os.Exit(errorcode.Backblaze)
 				}
 			}
 			assets = common.ReadFromParquet(viper.GetString("parquet_file"))
-		case 1:
-			arg0 := args[0]
-			if arg0[0] == '@' {
-				raw, err := os.ReadFile(arg0[1:])
+		}
+
+		for _, arg := range args {
+			if arg[0] == '@' {
+				raw, err := os.ReadFile(arg[1:])
 				if err != nil {
-					log.Error().Err(err).Str("FileName", arg0).Msg("cannot read argument file")
+					log.Error().Err(err).Str("FileName", arg).Msg("cannot read argument file")
 				}
 				tmpArgs := strings.Split(string(raw), "\n")
 				for _, arg := range tmpArgs {
@@ -112,12 +112,19 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 						assets = append(assets, asset)
 					}
 				}
-			}
-		default:
-			for _, arg := range args {
+			} else {
 				if arg != "" {
-					asset := &common.Asset{
-						Ticker: arg,
+					var asset *common.Asset
+					if len(arg) == 5 && arg[4] == 'X' {
+						asset = &common.Asset{
+							Ticker:    arg,
+							AssetType: common.MutualFund,
+						}
+					} else {
+						asset = &common.Asset{
+							Ticker:    arg,
+							AssetType: common.CommonStock,
+						}
 					}
 					assets = append(assets, asset)
 				}
@@ -153,11 +160,13 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 			asset.FidelityCusip = true
 			var err error
 			if asset.AssetType == common.MutualFund {
-				err = fidelity.FetchTickerData(asset, page)
+				err = fidelity.FetchMutualFundTickerData(asset, page)
 			} else {
 				err = fidelity.FetchStockTickerData(asset, bearerToken)
 			}
 			if err != nil {
+				log.Error().Err(err).Str("Asset", asset.Ticker).Msg("error fetching ticker data")
+			} else {
 				t.AppendRow(table.Row{asset.Name, asset.Ticker, asset.AssetType, asset.CUSIP})
 			}
 		}

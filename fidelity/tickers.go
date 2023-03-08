@@ -31,7 +31,7 @@ var (
 	ErrBadHTTPResponse = errors.New("bad HTTP response")
 )
 
-func FetchTickerData(asset *common.Asset, page playwright.Page) error {
+func FetchMutualFundTickerData(asset *common.Asset, page playwright.Page) error {
 	assetType := "stock"
 	if asset.AssetType == common.MutualFund {
 		assetType = "fund"
@@ -108,6 +108,15 @@ func FetchStockTickerData(asset *common.Asset, bearerToken string) error {
 	}
 
 	body := string(resp.Body())
+	if asset.Name == "" {
+		asset.Name = gjson.Get(body, `data.name`).String()
+	}
+
+	if asset.AssetType == "" {
+		asset.AssetType = gjson.Get(body, `data.classification.name`).String()
+	}
+
 	asset.CUSIP = gjson.Get(body, `data.supplementalData.#(name=="cusip").value`).String()
+	asset.CIK = gjson.Get(body, `data.supplementalData.#(name=="cik").value`).String()
 	return nil
 }
