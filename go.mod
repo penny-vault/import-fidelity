@@ -9,7 +9,7 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.4.6
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.14.0
-	github.com/onsi/ginkgo/v2 v2.9.0
+	github.com/onsi/ginkgo/v2 v2.9.1
 	github.com/onsi/gomega v1.27.3
 	github.com/penny-vault/pvlib v0.1.0
 	github.com/playwright-community/playwright-go v0.2000.1
@@ -67,7 +67,7 @@ require (
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
-	golang.org/x/tools v0.6.0 // indirect
+	golang.org/x/tools v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
