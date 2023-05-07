@@ -148,27 +148,11 @@ func Fmt() error {
 	return nil
 }
 
-// Run golint linter
+// Lint runs the golangcilint linter
 func Lint() error {
-	fmt.Println("Go Lint")
-
-	pkgs, err := pvapiPackages()
-	if err != nil {
-		return err
-	}
-	failed := false
-	for _, pkg := range pkgs {
-		// We don't actually want to fail this target if we find golint errors,
-		// so we don't pass -set_exit_status, but we still print out any failures.
-		if _, err := sh.Exec(nil, os.Stderr, nil, "golint", pkg); err != nil {
-			fmt.Printf("ERROR: running go lint on %q: %v\n", pkg, err)
-			failed = true
-		}
-	}
-	if failed {
-		return errors.New("errors running golint")
-	}
-	return nil
+	fmt.Println("golangci-lint")
+	_, err := sh.Exec(nil, os.Stderr, nil, "golangci-lint", "run")
+	return err
 }
 
 // Run go vet linter

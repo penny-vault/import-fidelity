@@ -61,7 +61,7 @@ var activityCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		page, context, browser, pw := fidelity.StartPlaywright(!viper.GetBool("show_browser"))
 		if err := fidelity.Login(page); err != nil {
-			fidelity.StopPlaywright(page, context, browser, pw)
+			fidelity.StopPlaywright(context, browser, pw)
 			os.Exit(errorcode.Login)
 		}
 
@@ -79,7 +79,7 @@ var activityCmd = &cobra.Command{
 
 		transactions, err := fidelity.AccountActivity(client, accounts)
 		if err != nil {
-			fidelity.StopPlaywright(page, context, browser, pw)
+			fidelity.StopPlaywright(context, browser, pw)
 			os.Exit(errorcode.Activity)
 		}
 

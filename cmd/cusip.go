@@ -141,7 +141,7 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 		// start playwright
 		page, context, browser, pw := fidelity.StartPlaywright(!viper.GetBool("show_browser"))
 		if err := fidelity.Login(page); err != nil {
-			fidelity.StopPlaywright(page, context, browser, pw)
+			fidelity.StopPlaywright(context, browser, pw)
 			os.Exit(errorcode.Login)
 		}
 
@@ -180,7 +180,7 @@ To search for mutual funds use the :MF suffix, e.g. to find data for VFIAX use V
 			}
 		}
 
-		fidelity.StopPlaywright(page, context, browser, pw)
+		fidelity.StopPlaywright(context, browser, pw)
 
 		if uploadToBackblaze {
 			if err := backblaze.Upload(viper.GetString("parquet_file"), viper.GetString("backblaze.bucket"), "."); err != nil {

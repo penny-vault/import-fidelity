@@ -1,4 +1,6 @@
 run:
+  skip-files:
+    - magefile.go
   timeout: 15m
   tests: true
 

@@ -25,7 +25,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-// check if the current session is expired; if it is login
+// Login checks if the current session is expired; if it is login
 func Login(page playwright.Page) error {
 	subLog := log.With().Str("Url", SummaryURL).Logger()
 
@@ -122,7 +122,7 @@ func StartPlaywright(headless bool) (page playwright.Page, context playwright.Br
 	return
 }
 
-func StopPlaywright(page playwright.Page, context playwright.BrowserContext, browser playwright.Browser, pw *playwright.Playwright) {
+func StopPlaywright(context playwright.BrowserContext, browser playwright.Browser, pw *playwright.Playwright) {
 	// save session state
 	log.Info().Msg("saving state")
 	stateFileName := viper.GetString("state_file")

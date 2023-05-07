@@ -62,6 +62,6 @@ use the automated login on future runs.`,
 			log.Error().Err(err).Msg("could not load activity page")
 		}
 
-		fidelity.StopPlaywright(page, context, browser, pw)
+		fidelity.StopPlaywright(context, browser, pw)
 	},
 }
