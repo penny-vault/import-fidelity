@@ -43,6 +43,7 @@ var ldflags = "-X github.com/penny-vault/import-fidelity/common.commitHash=$COMM
 
 // allow user to override go executable by running as GOEXE=xxx make ... on unix-like systems
 var goexe = "go"
+var ginkgoexe = "ginkgo"
 
 func init() {
 	if exe := os.Getenv("GOEXE"); exe != "" {
@@ -95,8 +96,10 @@ func testGoFlags() string {
 // Run tests
 func Test() error {
 	fmt.Println("Go Test")
-	env := map[string]string{"GOFLAGS": testGoFlags()}
-	return runCmd(env, goexe, "test", "./...", buildFlags(), "-tags", buildTags())
+	env := map[string]string{
+		"GOFLAGS": testGoFlags(),
+	}
+	return runCmd(env, ginkgoexe, "run", "-r", "--junit-report", "test-report.xml")
 }
 
 // Run tests with race detector
