@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/go-resty/resty/v2 v2.7.0
-	github.com/go-rod/stealth v0.4.8
+	github.com/go-rod/stealth v0.4.9
 	github.com/google/uuid v1.3.0
 	github.com/jedib0t/go-pretty/v6 v6.4.6
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
@@ -32,7 +32,7 @@ require (
 	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect
-	github.com/go-rod/rod v0.112.9 // indirect
+	github.com/go-rod/rod v0.113.0 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
 	github.com/golang/glog v1.1.1 // indirect
@@ -61,8 +61,9 @@ require (
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
-	github.com/ysmood/fetchup v0.2.2 // indirect
+	github.com/ysmood/fetchup v0.2.3 // indirect
 	github.com/ysmood/goob v0.4.0 // indirect
+	github.com/ysmood/got v0.34.1 // indirect
 	github.com/ysmood/gson v0.7.3 // indirect
 	github.com/ysmood/leakless v0.8.0 // indirect
 	golang.org/x/net v0.9.0 // indirect
