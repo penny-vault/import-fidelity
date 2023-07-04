@@ -45,10 +45,10 @@ func FetchMutualFundTickerData(asset *common.Asset, page playwright.Page) error 
 
 	// name
 	selector := "body > table > tbody > tr > td:nth-child(2) > table:nth-child(4) > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(1) > font"
-	locator, err := page.Locator(selector)
-	if err != nil {
-		log.Error().Err(err).Msg("could not create locator for name")
-		return err
+	locator := page.Locator(selector)
+	if locator != nil {
+		log.Error().Msg("could not create locator for name")
+		return errors.New("could not find locator: `body > table > tbody > tr > td:nth-child(2) > table:nth-child(4) > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(1) > font`")
 	}
 
 	cnt, err := locator.Count()
@@ -63,10 +63,10 @@ func FetchMutualFundTickerData(asset *common.Asset, page playwright.Page) error 
 
 	// cusip
 	selector = "body > table > tbody > tr > td:nth-child(2) > table:nth-child(4) > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(3) > font"
-	locator, err = page.Locator(selector)
-	if err != nil {
-		log.Error().Err(err).Msg("could not create locator")
-		return err
+	locator = page.Locator(selector)
+	if locator != nil {
+		log.Error().Msg("could not create locator")
+		return errors.New("could not find locator: `body > table > tbody > tr > td:nth-child(2) > table:nth-child(4) > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(3) > font`")
 	}
 
 	asset.CUSIP, err = locator.InnerText()

@@ -36,9 +36,9 @@ func Login(page playwright.Page) error {
 		return err
 	}
 
-	locator, err := page.Locator("#userId-input")
-	if err != nil {
-		subLog.Error().Err(err).Msg("error acquiring locator for userId")
+	locator := page.Locator("#userId-input")
+	if locator == nil {
+		subLog.Error().Msg("error acquiring locator for #userId-input")
 	}
 
 	cnt, err := locator.Count()
@@ -90,11 +90,12 @@ func StartPlaywright(headless bool) (page playwright.Page, context playwright.Br
 	// load browser state
 	stateFileName := viper.GetString("state_file")
 	log.Info().Str("StateFile", stateFileName).Msg("state location")
-	var storageState playwright.BrowserNewContextOptionsStorageState
 	data, err := os.ReadFile(stateFileName)
 	if err != nil {
 		log.Error().Err(err)
 	}
+
+	var storageState playwright.OptionalStorageState
 	err = json.Unmarshal(data, &storageState)
 	if err != nil {
 		log.Error().Err(err)
