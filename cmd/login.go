@@ -16,9 +16,6 @@
 package cmd
 
 import (
-	"os"
-
-	"github.com/penny-vault/import-fidelity/errorcode"
 	"github.com/penny-vault/import-fidelity/fidelity"
 	"github.com/playwright-community/playwright-go"
 	"github.com/rs/zerolog/log"
@@ -49,10 +46,6 @@ use the automated login on future runs.`,
 		}
 
 		// Wait for the user to press login button
-		if _, err := page.WaitForNavigation(); err != nil {
-			log.Error().Err(err).Msg("error waiting for navigation on login")
-			os.Exit(errorcode.Login)
-		}
 		page.WaitForTimeout(30000)
 
 		// load the activity page

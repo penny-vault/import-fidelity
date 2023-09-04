@@ -28,8 +28,8 @@ func StealthPage(context *playwright.BrowserContext) playwright.Page {
 		log.Error().Err(err).Msg("could not create page")
 	}
 
-	if err = page.AddInitScript(playwright.PageAddInitScriptOptions{
-		Script: playwright.String(stealth.JS),
+	if err = page.AddInitScript(playwright.Script{
+		Content: playwright.String(stealth.JS),
 	}); err != nil {
 		log.Error().Err(err).Msg("could not load stealth mode")
 	}
