@@ -12,7 +12,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.12.0
 	github.com/onsi/gomega v1.27.10
 	github.com/penny-vault/pvlib v0.1.0
-	github.com/playwright-community/playwright-go v0.3500.0
+	github.com/playwright-community/playwright-go v0.3700.0
 	github.com/rs/zerolog v1.30.0
 	github.com/schollz/progressbar/v3 v3.13.1
 	github.com/spf13/cobra v1.7.0
