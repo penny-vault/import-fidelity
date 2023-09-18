@@ -3,7 +3,7 @@ module github.com/penny-vault/import-fidelity
 go 1.20
 
 require (
-	github.com/go-resty/resty/v2 v2.7.0
+	github.com/go-resty/resty/v2 v2.8.0
 	github.com/go-rod/stealth v0.4.9
 	github.com/google/uuid v1.3.1
 	github.com/jedib0t/go-pretty/v6 v6.4.7
@@ -68,7 +68,7 @@ require (
 	github.com/ysmood/gson v0.7.3 // indirect
 	github.com/ysmood/leakless v0.8.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	golang.org/x/net v0.14.0 // indirect
+	golang.org/x/net v0.15.0 // indirect
 	golang.org/x/sys v0.12.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/tools v0.12.0 // indirect
