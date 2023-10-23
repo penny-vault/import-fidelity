@@ -9,8 +9,8 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.4.8
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.15.0
-	github.com/onsi/ginkgo/v2 v2.12.1
-	github.com/onsi/gomega v1.28.0
+	github.com/onsi/ginkgo/v2 v2.13.0
+	github.com/onsi/gomega v1.28.1
 	github.com/penny-vault/pvlib v0.1.0
 	github.com/playwright-community/playwright-go v0.3800.0
 	github.com/rs/zerolog v1.31.0
@@ -38,7 +38,7 @@ require (
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
 	github.com/golang/glog v1.1.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/google/go-cmp v0.5.9 // indirect
+	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/pprof v0.0.0-20210720184732-4bb14d4b1be1 // indirect
 	github.com/google/readahead v0.0.0-20161222183148-eaceba169032 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
@@ -60,7 +60,6 @@ require (
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.10.0 // indirect
 	github.com/spf13/cast v1.5.1 // indirect
-	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
