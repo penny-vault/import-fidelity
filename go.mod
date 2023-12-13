@@ -7,7 +7,7 @@ toolchain go1.21.2
 require (
 	github.com/go-resty/resty/v2 v2.10.0
 	github.com/go-rod/stealth v0.4.9
-	github.com/google/uuid v1.4.0
+	github.com/google/uuid v1.5.0
 	github.com/jedib0t/go-pretty/v6 v6.4.9
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.15.0
