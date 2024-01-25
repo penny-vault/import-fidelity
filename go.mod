@@ -14,7 +14,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.14.0
 	github.com/onsi/gomega v1.30.0
 	github.com/penny-vault/pvlib v0.1.0
-	github.com/playwright-community/playwright-go v0.4001.0
+	github.com/playwright-community/playwright-go v0.4101.0
 	github.com/rs/zerolog v1.31.0
 	github.com/schollz/progressbar/v3 v3.14.1
 	github.com/spf13/cobra v1.8.0
@@ -31,7 +31,7 @@ require (
 	github.com/apache/arrow/go/arrow v0.0.0-20211112161151-bc219186db40 // indirect
 	github.com/apache/thrift v0.19.0 // indirect
 	github.com/benbjohnson/clock v1.3.5 // indirect
-	github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964 // indirect
+	github.com/deckarep/golang-set/v2 v2.6.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-jose/go-jose/v3 v3.0.1 // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
