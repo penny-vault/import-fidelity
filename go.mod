@@ -11,7 +11,7 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.5.6
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.15.0
-	github.com/onsi/ginkgo/v2 v2.14.0
+	github.com/onsi/ginkgo/v2 v2.17.1
 	github.com/onsi/gomega v1.30.0
 	github.com/penny-vault/pvlib v0.1.0
 	github.com/playwright-community/playwright-go v0.4201.1
@@ -34,7 +34,7 @@ require (
 	github.com/deckarep/golang-set/v2 v2.6.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-jose/go-jose/v3 v3.0.3 // indirect
-	github.com/go-logr/logr v1.3.0 // indirect
+	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-rod/rod v0.114.8 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
