@@ -12,7 +12,7 @@ require (
 	github.com/kothar/go-backblaze v0.0.0-20210124194846-35409b867216
 	github.com/magefile/mage v1.15.0
 	github.com/onsi/ginkgo/v2 v2.17.1
-	github.com/onsi/gomega v1.32.0
+	github.com/onsi/gomega v1.33.0
 	github.com/penny-vault/pvlib v0.1.0
 	github.com/playwright-community/playwright-go v0.4201.1
 	github.com/rs/zerolog v1.32.0
@@ -73,7 +73,7 @@ require (
 	github.com/ysmood/leakless v0.8.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/exp v0.0.0-20240318143956-a85f2c67cd81 // indirect
-	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.19.0 // indirect
