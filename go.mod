@@ -24,7 +24,7 @@ require (
 	github.com/xitongsys/parquet-go-source v0.0.0-20240122235623-d6294584ab18
 	go.uber.org/ratelimit v0.3.1
 	golang.org/x/term v0.18.0
-	lukechampine.com/blake3 v1.2.1
+	lukechampine.com/blake3 v1.3.0
 )
 
 require (
